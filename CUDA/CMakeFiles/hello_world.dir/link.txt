@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   ./hello_world_generated_hello_world.cu.o  -o hello_world -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib /usr/local/lib/libcudart.so -lcuda libbook.a libtimers.a /usr/local/lib/libcudart.so -lcuda -Wl,-rpath,/usr/local/src/NVIDIA_CUDA_SDK/lib:/usr/local/lib 

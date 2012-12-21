@@ -1,0 +1,46 @@
+pro10_10/gam01096.ans
+verify_squares: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+
+  - - - - - - - - - -
+ |. . . O . . < + > .|4
+ |. . . . . . . . . .|0
+ |. . ^ . . . . < > .|3
+ |O . v . . . . . . .|2
+ |. . . . . . < > . .|2
+ |. . . . . . . . . .|0
+ |. < + + > . . . . .|4
+ |. . . . . . < + > .|3
+ |. O . O . . . . . .|2
+ |. . . . . . . . . .|0
+  - - - - - - - - - -
+  1 2 3 3 1 0 3 4 3 0 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water
+fill with water rows 2 6 10 and columns 1 6 10 
+guess battleship is in row starting at row 7 and column 2 
+fill with water row 7 and column 5 
+fill blanks with ship in row 8 
+identify ship parts
+fill blanks that must be ship in column 7 
+fill with water column 7 
+fill blanks with ship in column 8 
+fill with water row 5 
+identify ship parts
+fill blanks with ship in column 9 
+identify ship parts
+assign submarine to row 1 
+guess destroyer is in column starting at row 3 and column 3 
+fill with water column 3 
+fill blanks with ship in row 9 and column 4 
+fill with water row 1 
+identify ship parts

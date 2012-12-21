@@ -1,0 +1,53 @@
+pro10_10/gam01083.ans
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+
+  - - - - - - - - - -
+ |. . . . . . . . . .|0
+ |. . . ^ . O . . ^ .|3
+ |. . . + . . . . v .|2
+ |O . . v . . . . . .|2
+ |. . . . . . < + + >|4
+ |. . . . . . . . . .|0
+ |. O . . < + > . . .|4
+ |. . . . . . . . ^ .|1
+ |< > . . . . . . v .|3
+ |. . . . . . O . . .|1
+  - - - - - - - - - -
+  2 2 0 3 1 2 3 1 5 1 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water
+fill with water rows 1 6 10 and column 3 
+must be water in square at intersection of row 2 and column 8 
+must be water in square at intersection of row 2 and column 10 
+must be water in square at intersection of row 4 and column 5 
+must be water in square at intersection of row 4 and column 6 
+must be water in square at intersection of row 4 and column 8 
+must be water in square at intersection of row 4 and column 10 
+must be water in square at intersection of row 8 and column 5 
+must be water in square at intersection of row 8 and column 6 
+must be water in square at intersection of row 8 and column 8 
+must be water in square at intersection of row 8 and column 10 
+guess battleship is in row starting at row 5 and column 7 
+fill with water row 5 and columns 8 10 
+fill blanks with ship in rows 3 4 and columns 6 7 
+identify ship parts
+fill blanks that must be ship in row 8 
+fill with water row 8 
+must be water in square at intersection of row 7 and column 4 
+guess cruiser is in row starting at row 7 and column 5 
+fill with water row 7 and column 5 
+fill blanks with ship in column 9 
+identify ship parts
+assign cruiser to column 4 
+place cruiser parts and/or water in column 4 
+fill with water row 2 
+identify ship parts
+fill blanks with ship in row 9 
+identify ship parts

@@ -1,0 +1,43 @@
+pro10_10/gam01053.ans
+
+  - - - - - - - - - -
+ |. . . ^ . . . . . .|1
+ |. . . + . . . . . .|1
+ |. . . + . ^ . . . .|2
+ |. O . v . + . . . .|3
+ |. . . . . v . < + >|4
+ |^ . < > . . . . . .|3
+ |v . . . . O . ^ . O|4
+ |. . . . . . . v . .|1
+ |. . . . O . . . . .|1
+ |. . . . . . . . . .|0
+  - - - - - - - - - -
+  2 1 1 5 1 4 0 3 1 2 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water row 10 and columns 3 7 
+must be water in square at intersection of row 2 and column 5 
+must be water in square at intersection of row 4 and column 9 
+must be water in square at intersection of row 6 and column 9 
+must be water in square at intersection of row 8 and column 9 
+guess battleship is in column starting at row 1 and column 4 
+fill with water rows 1 2 and column 4 
+guess cruiser is in row starting at row 5 and column 8 
+fill with water column 9 
+fill blanks with ship in row 7 and column 5 
+fill with water row 9 and column 10 
+identify ship parts
+fill blanks that must be ship in row 5 and columns 6 8 
+fill with water rows 3 5 8 
+identify ship parts
+fill blanks with ship in column 2 
+assign cruiser to column 6 
+guess cruiser is in column starting at row 3 and column 6 
+fill with water row 4 
+identify ship parts
+fill blanks with ship in row 6 
+identify ship parts

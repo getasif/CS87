@@ -1,0 +1,324 @@
+23,26c23
+< This version is much slower than the version without try_contradict.
+< It may help to change try_contradict so it tests squares in order
+< of goodness, rather than in array order. That would require devising
+< a goodness measure and implementing a goodness evaluator.
+---
+> This version has the try_contradict function removed.
+
+< int solve_paint2(struct paint_world * world);
+
+< int try_contradict(struct paint_world * world, struct paint_world * world2);
+
+< Called By:
+<   try_contradict
+<   try_guessing
+---
+> Called By:  try_guessing
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+<   solve_paint2
+
+<   try_contradict
+
+<   try_contradict
+
+<   4. try_contradict returns ERROR.
+<   5. try_corners returns ERROR.
+<   6. try_edges returns ERROR.
+<   7. try_empty_no_room returns ERROR.
+<   8. try_empty_outside returns ERROR.
+<   9. try_full_bounded returns ERROR.
+<  10. try_guessing returns ERROR.
+<  11. try_one returns ERROR.
+---
+>   4. try_corners returns ERROR.
+>   5. try_edges returns ERROR.
+>   6. try_empty_no_room returns ERROR.
+>   7. try_empty_outside returns ERROR.
+>   8. try_full_bounded returns ERROR.
+>   9. try_guessing returns ERROR.
+>  10. try_one returns ERROR.
+
+< e. try_contradict
+
+< function works only on undone strips, but try_contradict should not
+< be run in this case. Hence, a check is made of world->undone before
+< running try_contradict.
+---
+> function works only on undone strips.
+
+<   struct paint_world world2;     /* puzzle model to use if needed */
+
+<       IFF(try_contradict(world, &world2));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+
+< /* solve_paint2
+< 
+< Returned Value: int
+<   If any of the following errors occur, this returns ERROR.
+<   If this does not solve the puzzle, it returns STALLED.
+<   Otherwise, it returns OK.
+<   1. explain_paint returns ERROR.
+<   2. print_paint returns ERROR.
+<   3. try_block returns ERROR.
+<   4. try_corners returns ERROR.
+<   5. try_edges returns ERROR.
+<   6. try_empty_no_room returns ERROR.
+<   7. try_empty_outside returns ERROR.
+<   8. try_full_bounded returns ERROR. 
+<   9. try_one returns ERROR.
+< 
+< Called By:  try_contradict
+< 
+< Side Effects:
+< 
+< See documentation of solve_paint.
+< 
+< The differences between this function and solve_paint are:
+< 1. This does not call try_contradict.
+< 2. This does not call try_guessing.
+< 
+< */
+< 
+< int solve_paint2(             /* ARGUMENTS            */
+<  struct paint_world * world)  /* puzzle model to use  */
+< {
+<   const char name[] SET_TO "solve_paint2";
+<   int progress;
+<   int return_me;
+< 
+<   for (world->progress_puzzle SET_TO 0;
+<        world->undone ISNT 0;
+<        world->progress_puzzle SET_TO 0)
+<     {
+<       progress SET_TO 0;
+<       IFF(try_full_bounded(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       IFF(try_empty_outside(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       IFF(try_empty_no_room(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       if (progress)
+< 	continue;
+<       IFF(try_block(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       if (progress)
+< 	continue;
+<       IFF(try_edges(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       IFF(try_corners(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       if (progress)
+< 	continue;
+<       IFF(try_one(world));
+<       if (world->progress_puzzle)
+< 	{
+< 	  progress SET_TO 1;
+< 	  world->progress_puzzle SET_TO 0;
+< 	}
+<       if (progress IS 0)
+< 	break;
+<     }
+<   if (world->undone IS 0)
+<     {
+<       IFF(print_paint(world));
+<       IFF(explain_paint(world));
+<       return_me SET_TO OK;
+<     }
+<   else
+<     return_me SET_TO STALLED;
+<   return return_me;
+< }
+< 
+< /*************************************************************************/
+< 
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< /* try_contradict
+< 
+< Returned Value: int
+<   If any of the following errors occur, this returns ERROR.
+<   Otherwise, it returns OK.
+<   1. copy_world returns ERROR.
+<   2. put_logic returns ERROR.
+<   3. record_progress returns ERROR.
+< 
+< Called By:  solve_paint
+< 
+< Side Effects: See below
+< 
+< Notes:
+< 
+< For each empty puzzle square, this tries marking the square full and
+< then seeing if attempting to complete the puzzle leads to an error. If
+< so, this marks the square empty. If not, this tries marking the square
+< empty and then seeing if attempting to complete the puzzle leads to an
+< error.  If so, this marks the square full. As soon as one square is
+< marked definitely empty or full, this quits.
+< 
+< To look for a contradiction, this runs solve_paint2. If that returns
+< an error, there is a contradiction.
+< 
+< If a single guess of a full square is sufficient to lead to a
+< solution, the solution is found in solve_paint2(possibly many times,
+< once for each square whose filling leads to a solution). Hence, the
+< guess is recorded by this function in the logic for world2. The
+< guess is printed in verbose mode so the user can understand where
+< the new X came from.
+< 
+< */
+< 
+< int try_contradict(            /* ARGUMENTS          */
+<  struct paint_world * world,   /* main puzzle model  */
+<  struct paint_world * world2)  /* spare puzzle model */
+< {
+<   const char name[] SET_TO "try_contradict";
+<   int row;
+<   int col;
+<   int result;      /* set to result of running solve_paint2 */
+< 
+<   result SET_TO OK;
+<   for (row SET_TO 0; row < world->number_rows; row++)
+<     {
+<       if (world->rows[row].undone)
+< 	{
+< 	  for (col SET_TO 0; col < world->number_cols; col++)
+< 	    {
+< 	      if (world->squares[row][col] IS ' ')
+< 		{
+< 		  world->squares[row][col] SET_TO 'X';
+< 		  IFF(copy_world(world2, world));
+< 		  world2->number_rows_in SET_TO 0;
+< 		  world2->number_cols_in SET_TO 0;
+< 		  world2->progress_puzzle SET_TO 1;
+< 		  world2->use_rows SET_TO 1;
+< 		  IFF(put_logic(row, world2));
+< 		  world2->use_rows SET_TO 0;
+< 		  IFF(put_logic(col, world2));
+< 		  IFF(record_progress("guess the square is full at ", world2));
+< 		  result SET_TO solve_paint2(world2);
+< 		  if (result IS ERROR)
+< 		    break;
+< 		  world->squares[row][col] SET_TO '.';
+< 		  IFF(copy_world(world2, world));
+< 		  world2->number_rows_in SET_TO 0;
+< 		  world2->number_cols_in SET_TO 0;
+< 		  world2->progress_puzzle SET_TO 1;
+< 		  world2->use_rows SET_TO 1;
+< 		  IFF(put_logic(row, world2));
+< 		  world2->use_rows SET_TO 0;
+< 		  IFF(put_logic(col, world2));
+< 		  IFF(record_progress("guess the square is empty at ", world2));
+< 		  result SET_TO solve_paint2(world2);
+< 		  if (result IS ERROR)
+< 		    break;
+< 		  else
+< 		    world->squares[row][col] SET_TO ' ';
+< 		}
+< 	    }
+< 	  if (result IS ERROR)
+< 	    break;
+< 	}
+<     }
+<   if (result IS ERROR)
+<     {
+<       world->number_rows_in SET_TO 0;
+<       world->number_cols_in SET_TO 0;
+<       world->progress_puzzle SET_TO 1;
+<       world->use_rows SET_TO 1;
+<       IFF(put_logic(row, world));
+<       world->use_rows SET_TO 0;
+<       IFF(put_logic(col, world));
+<       if (world->squares[row][col] IS 'X')
+< 	{
+< 	  world->squares[row][col] SET_TO '.';
+< 	  IFF(record_progress
+< 	      ("mark empty square where full impossible at ", world));
+< 	}
+<       else
+< 	{
+< 	  world->squares[row][col] SET_TO 'X';
+< 	  IFF(record_progress
+< 	      ("mark full square where empty impossible at ", world));
+< 	}
+<     }
+<   return OK;
+< }
+< 
+< /*************************************************************************/
+< 
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint
+
+< Called By:
+<   solve_paint
+<   solve_paint2
+---
+> Called By:  solve_paint

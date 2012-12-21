@@ -1,0 +1,13 @@
+/home/shwang1/cs87/CUDA/CMakeFiles/add_loop_cpu.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/add_loop_gpu.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/add_loop_long.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/book.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/clean_cuda_depends.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/enum_gpu.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/hello_world.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/maxval.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/set_gpu.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/simple_device_call.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/simple_kernel.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/simple_kernel_params.dir
+/home/shwang1/cs87/CUDA/CMakeFiles/timers.dir

@@ -1,0 +1,2 @@
+/usr/bin/ar cr libtimers.a  ./timers_generated_timer.cu.o
+/usr/bin/ranlib libtimers.a

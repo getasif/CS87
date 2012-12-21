@@ -1,0 +1,28 @@
+  - - - - - - - - - -
+ |. . . . ^ . ^ . . .|2
+ |. . . . + . + . ^ .|3
+ |< + > . + . + . + .|6
+ |. . . . v . v . v .|3
+ |. . . . . . . . . .|0
+ |. . . . . ^ . . . .|1
+ |. < + > . + . ^ . .|5
+ |. . . . . + . + . .|2
+ |< + > . . v . + . .|5
+ |. . . . . . . v . .|1
+  - - - - - - - - - -
+  2 3 3 1 4 4 4 4 3 0 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water rows 5 6 and column 10 
+fill blanks that must be ship in rows 7 8 and columns 5 7 
+fill with water row 1 and columns 4 5 7 
+identify ship parts
+fill blanks with ship in rows 3 4 and columns 8 9 
+fill with water row 10 
+identify ship parts
+fill blanks with ship in row 9 
+identify ship parts

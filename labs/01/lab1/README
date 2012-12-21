@@ -1,0 +1,28 @@
+This directory contains:
+
+  * An example Makefile that you can modify to use for your gol program.
+    It has a lot of comments about how to use it and which definitions
+    to change.
+
+  * An example of separating functionality of a program into separate
+    .c files (modules) and creating and using a .h file shared by 
+    multiple modules.
+
+    * examples of how to use extern and static modifiers in definitions
+      and what that means are described in comments
+      
+You can use these files as a guide for creating your gol program.
+If you actually modify the contents of these files for your gol, make
+sure to remove all my comments about C definitions and scope and add
+comments that describe your gol program.
+
+
+C_examples.c: this contains some examples of where C differs from C++
+              there is a lot more documentation about C and C libraries
+              off my help pages
+
+        compile with gcc and run resulting a.out
+
+        gcc -g C_examples.c
+        ./a.out
+

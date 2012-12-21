@@ -1,0 +1,35 @@
+#
+# Makefile for valgrind or purifyplus on Linux
+#
+
+MAIN=badprog
+
+# CC for regular build and for valgrind build
+CC = gcc
+
+# CC for purify build
+#CC = attolcc -mempro -perfpro -block -proc -- gcc
+
+CFLAGS= -Wall -g
+
+LFLAGS=
+LIBS=
+INCLUDES=
+
+SRCS = main.c
+
+OBJS = $(SRCS:.c=.o)
+
+$(MAIN):  $(OBJS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(MAIN) $(LFLAGS) $(LIBS)
+
+.C.o:
+	$(CC) $(CLFAGS) $(INCLUDEES) -c $<
+
+depend: $(SRCS)
+	makedepend $(INCLUDES) $^
+
+clean:
+	 rm -f *.o *~ $(MAIN) *.tsf *.fdc *.tio *.tqf *.tdf *.tpf
+
+# DO NOT DELETE THIS LINE -- make depend needs it

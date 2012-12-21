@@ -1,0 +1,827 @@
+Programming Battleships
+T. Kramer
+4/(4-20)/1
+7/19/1
+8/8/1
+11/5/1
+2/5/2
+9/20/4
+9/23/4
+
+Notation for this document
+--------------------------
+answer = a completed puzzle (not including any other information).
+explanation = a description of the process by which the answer was found.
+ship = a battleship, cruiser, destroyer, or submarine.
+strip = a row or column.
+
+The document has four main sections: Key Decisions, Rules, Search vs
+Construct, and Further Considerations. All sections are numbered
+sequentially.  Each key decision has three parts: the problem, the
+decision, and considerations.
+
+Each numbered item is dated. The date is the date of the last revision.
+No history of revisions is being kept.
+
+Key Decisions
+-------------
+
+1. 4/4/1
+
+Problem: What programming language should be used.
+
+Decision: Decided to use C++.
+
+Considerations: The language should support the data structures and types
+needed for the problem representation, either natively, or via a user
+facility for defining structures and types. The language must also provide
+for defining functions for solving the problem.
+
+1/18/2
+
+Decision: Switch entirely to gen_gen_C.
+
+Considerations: gen_gen_C is a constrained form of ANSI C that the gen_gen
+program can read. The language may be compiled by any C or C++ compiler.  A
+functionally identical gen_gen_C version (bap.c) of the battleships solver
+has already been written. It runs slightly faster than the C++
+version. There appear to be no advantages of any sort to keeping the C++
+version. An upgrade of the search capability in the program is about to be
+implemented, and it seems a waste of effort to try to maintain both the C++
+version and the C version.
+
+2. 4/4/1
+
+Problem: What representation should be used for stating problems?
+
+Decision: Use a file representation. Have the printed file
+(using a fixed width font) look like the typical battleships
+puzzle. The following format looks OK for the puzzle itself.
+
+   - - - - - - - - - -
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+ N|                   |
+   - - - - - - - - - -
+   N N N N N N N N N N
+
+   <++>
+   <+>  <+>
+   <>  <>  <>
+   O  O  O  O
+
+The number of filled squares in each row and column are shown on the
+left and bottom.
+
+Considerations:
+
+A. Since it is essential to have problems, answers, and solutions
+persist, some type of file representation is clearly required.
+A puzzle graphic representation that will serve to show the puzzle
+itself for all three purposes is obviously simpler and better than
+separate representations for the three purposes.
+
+B. Pretty pictures are not required, but human readability is. Since
+it is planned to track the solution of problems, the file representation
+should also be adequate to inform a human about steps in the solution.
+
+C. To get squares to look roughly square, put spaces between columns.
+
+D. It will be useful to keep track of how many ships of each type
+have been placed, so a graphic of unplaced ships is useful.
+
+2. (continued) 7/19/01
+
+The file representation has been changed by moving the numbers from the
+left to the right side of the row. This was done to match the normal
+printed representation. No graphic of unplaced ships was used. Assigning a
+ship to a strip makes it unavailable to be placed anywhere else, so knowing
+what ships have been assigned is needed for following the steps of the
+solution. Hence, it would be desirable to show ship assignments when the
+puzzle is printed during the solution process, but this has not been
+implemented. Ship assignments are represented in the bap world model.  They
+could be represented graphically by printing a picture of each assigned
+ship above the column to which it is assigned or to the right of the row to
+which it is assigned.
+
+3. 4/4/1
+
+Problem: How are ships, water, and unknown represented graphically?
+
+Decision:
+
+undecided grid squares = (blank)
+
+water  = ~ 
+submarine = O
+
+destroyer = < > (horizontal)
+destroyer = ^   (vertical)
+            v
+cruiser = < + > (horizontal)
+          ^
+cruiser = +     (vertical)
+          v
+
+battleship = < + + > (horizontal)
+             ^
+battleship = +       (vertical)
+             +
+             v
+
+right end  = >
+left end   = <
+top end    = ^
+bottom end = v
+middle     = +
+
+ship part of not fully determined type = X (typex)
+
+Considerations:
+
+A. The characters should at least vaguely resemble the standard
+ship parts.
+
+B. The middle of a ship should be symmetric under top/bottom reflection,
+right/left reflection, and 90 degree rotation.
+
+C. The most interesting consideration is that it is necessary for solving
+the puzzles to have a representation for part of a ship. That is also
+necessary for stating the problem, but that is not interesting. The
+key thing here is that it is necessary to have a representation for
+the fact that a grid square is occupied by part of a ship. It is not
+adequate to have only a representation for the placement of an entire
+ship.
+
+D. No notation is defined for typex's for which it is known that
+only one of a limited set of types is possible. The full set is:
+top, bottom, left, right, horizontal_middle, vertical_middle. Many
+different subsets of those are possible (and many subsets are not).
+It may turn out that having notation would be useful.
+
+3. (continued) 7/19/01
+
+The character for water was changed from ~ to .
+The ~ character made the appearance too cluttered. It was hard to see
+the non-water characters.
+
+4. 4/4/1
+
+Problem: What representation should be used for stating the solution?
+
+Decision: Interleave graphics of partially worked puzzles with
+statements of the reasoning that leads from one step to the next.
+
+Considerations:
+
+4. (continued) 8/8/1
+
+Decision:
+
+A. In addition to the interleaving, when a solution is found,
+after printing the solution, print the entire chain of reasoning that
+led to the solution. In case search is used, save only correct
+guesses for printing after the solution is found.
+
+B. The intermediate stages with the reason for each are printed only
+if the #defined variable VERB is non-zero, so the interleaving may be
+turned off by #defining VERB to zero.
+
+Considerations
+
+A. The interleaving is implemented and makes it relatively easy to follow
+the reasoning.  It does create a lot of text, particularly if search
+occurs. 
+
+The way search works, partial chains of reasoning are copied each time a
+guess is made and discarded if the guess does not pan out, so by the
+operation of the search algorithm, only correct guesses are saved for
+printing after a complete solution is found.
+
+11/5/1
+
+B. The #defined variable VERB was replaced by the print_all attribute
+of the world model. This is set according to the command line arguments.
+The change was made to put more control on the command line and to
+match what is done in the print by numbers solver.
+
+5. 4/4/1
+
+Problem: What internal representation should be used for stating the
+problem statement, answer, partial answers, and partial solution?
+
+Decisions: 
+
+A. Use a character array one square larger than the
+puzzle on each edge (e.g. use a 12x12 array if the puzzle is
+10x10). The extra squares around the edges are all filled with
+water at the outset. This procedure (an old trick) allows the
+solution process to treat all undecided squares as interior
+squares, so the same procedures will apply to all squares, and
+no tests for being edge squares are required.
+
+B. Use the same characters as in the graphical representation for
+the entries in the array.
+
+C. For partial answers, use an updated copy of the previous
+partial answer. In addition, save a description of the change
+and a description of the reasoning behind it.
+
+Considerations:
+
+A. It should be easy to define and manipulate the representation
+in the computer language.
+
+B. It will help if the representation allows all parts of the
+puzzle to be treated the same.
+
+C. The puzzle is graphical for humans, so a structure with an
+obvious correspondence to a graphical view is desirable.
+
+D. A non-symbolic internal representation might be used, such as
+an array of pointers to "bap_thing", where bap_thing would have
+subclasses like "water" and "right_end_of_ship", but there does
+not seem to be anything to be gained by doing that.
+
+E. It would save some space if partial answers were recorded as
+changes to the previous partial answers, but it would be a
+nuisance
+
+5. (continued) 7/19/01
+
+The Decisions listed above were implemented as described with the following
+exceptions.
+
+A. Because a 2D array cannot be declared at execution time, it was decided
+to use MAX_NUMBER_COLS x MAX_NUMBER_ROWS fixed size array. MAX_NUMBER_COLS
+and MAX_NUMBER_ROWS are #defined (both as 99, currently). That wastes a
+little space, but it is only a tiny fraction of available space. A
+portion of this large array is used for the actual puzzle.
+
+Instead of padding the array, the "square" function was written which,
+given row and column indexes, checks if that square is inside the puzzle
+and (i) if so returns the character at that location (ii) if not returns
+the water character (.).
+
+6. 4/4/1
+
+Problem: What types of facts need to be represented regarding steps in
+solving the problem and how might they be represented?
+
+Decision: The necessary facts follow. Their representations are
+handled as individual issues.
+
+A.  exactly where a ship goes. May be recorded graphically in the
+representation of the partial answer.
+
+B. that a ship must be put in a segment of a particular row or column.
+
+C. how many ships of a particular type remain to be placed?
+
+6. (continued) 7/19/01
+
+A. In the implementation, where a ship goes is represented both graphically
+and in a list of ship locations.
+
+7. 4/4/1
+
+Problem: How do representations change when the exact placement of a ship
+is determined?
+
+Decisions:
+
+A. The partial answer is updated by changing whatever blocks need
+changing. Some may already be marked as specific ship parts or ship parts
+of type X. All adjacent undetermined squares are changed to water.
+
+7. (continued) 7/19/01
+
+A. In the implementation many more types of data about the state of
+the solution are kept. They are updated as necessary.
+
+7. (continued) 9/20/4
+
+Here is a summary of how ship data is handled today.
+
+Currently, there are four types of data about ship locations:
+1. Each strip records the number of each type of ship assigned to
+   it but not yet located.
+2. The world records the number of each type of ship assigned
+   but not yet located. For submarines, which can be assigned to
+   both rows and columns, there are two numbers.
+3. The world records the number of each type of ship neither assigned
+   nor located. For submarines, which can be assigned to
+   both rows and columns, there are two numbers.
+4. world->locations is a 2D array of integers representing the corresponding
+   squares from world->squares. If a ship has its top end or left end in a
+   square, the integer in the corresponding entry of world->locations gives
+   the length and orientation of the ship. The absolute value
+   of the integer gives the length of the ship. The sign of the integer
+   is negative if the ship is in a column and positive if the ship is
+   in a row.
+
+Direct data about ships is not modeled. This might be done, for example
+by having a struct for each ship type (e.g. destroyer) with attributes of
+how_many, assignments, and locations. The same information is available
+indirectly. There seems to be no point in having data about individual
+ships, since ships of a given type are interchangeable.
+
+This is not currently remembering what the puzzle statement says about
+how many ships there are of each type. It would be simple to add
+this. Then the world->locations array could be used at the end to
+double-check that all ships have been found. This is not currently
+being done. Unless there is a bug in the code, all ships given
+in the puzzle statement will be located when world->undone is zero.
+
+There are three stages of locating a ship.
+a. unknown - ship accounted for only by xxxships_left.
+b. known to be in a row or column but not fully located - ship is
+   "assigned" to a row or column in the strip for the row or column.
+   When a ship is assigned, world->xxxships_left is decremented and
+   xxxships for the strip is incremented.
+c. fully located - xxxships for the row or column is decremented
+   if not zero. Otherwise world->xxxships_left is decremented.
+   The ship appears as it should in world->squares. An entry appears
+   in world->locations.
+
+
+8. 4/4/1
+
+Problem: How do we represent that a ship must be put in a segment of a
+particular row or column (or a set of such)?
+
+Decisions:
+
+A. For each type of ship, make a ship-placement list consisting
+of exact places where a ship of that type might go. For example
+(((2,1),(2,2),(2,3)), ((2,2),(2,3),(2,4)), ((3,4),(4,4),(5,4))) is
+a list of three places a cruiser might go.
+
+Considerations:
+
+A. Where a ship N squares long may be placed anywhere on a strip of
+squares more than N squares long, a compressed notation could be
+used, but this does not seem to be worth the trouble.
+
+8. (continued)
+
+A. The representation described above was not used in the
+implementation. The guess_part and guess classes defined in bap.hh are used
+instead. In addition a set of guesses is represented by an array of guess.
+
+9. 4/4/1
+
+Problem: What sorts of search will be supported?
+
+Decision: Two types of search will used:
+
+A. square-filling search, in which one guesses that a specific square
+is occupied by part of a ship and pursues the implications of that.
+
+B. ship-placement search, in which one guesses that a particular ship
+type is placed in a particular location.
+
+Considerations:
+
+In working actual battleships puzzles, I have used both types of search
+frequently, so both seem to be needed
+
+9. (continued) 7/19/01
+
+A. Square-filling search was not implemented. On further consideration,
+there seemed to be no efficient way to do it.
+
+B. ship-placement search is implemented. Both (i) construct and search
+and (ii) pure search were implemented. Three variations of pure search
+were tried.
+
+C. In the implementation, the fact that ship placement search is being used
+is obscured by representing a guess at the placement of a ship only by the
+placement of its parts. For example, if a destroyer is guessed to be in row
+2 starting at square 5 of the row, the guess parts represent that < is in
+one square, and > is in the square next to it. The fact that the two parts
+make a destroyer is temporarily lost, except in the text describing the
+guess. The destroyer as a ship is rediscovered by locate_ships (the
+ship-finding function) after the two squares have been marked.
+
+9. (continued) 11/5/1
+
+A constructive method of solution is expected to run faster than a search
+method. To test the battleship solver for this, two versions of a searching
+solver were built and tested.
+
+The first solver using search, bap_search1, was built by removing from bap
+all the functions that construct ship. The functions that construct water
+were left in place.
+
+The second solver using search, bap_search2, was built by removing from
+bap_search1 all the functions that construct water. The notion of water is
+not included in the answers to battleship puzzles, so not constructing
+water is reasonable.
+
+The constructive solver, bap, runs about four times as fast as bap_search1
+and 1000 times as fast as bap_search2.
+
+Run via the command "time script/test_fast", bap took 4.2 seconds to solve
+the 61-problem test suite. Run via the command "time
+script/test_fast_search1" with nothing commented out, bap_search1 solved
+the test suite in 15.2 seconds. With calls to the four legal_xxx functions
+commented out, bap_search1 solved the same suite in 17.5 seconds.
+
+Run on two easy problems and one very hard problems using "time",
+bap_search2 took a total of 290 seconds to solve the three problems, while
+bap took a total of 0.26 seconds. A fourth, very hard, problem (ftex2.pro)
+took 9214 seconds in bap_search2 vs 0.15 second in bap.
+
+It is interesting that removing the construction of ship had a relatively
+small effect (a factor of 4) compared to removing also the construction
+of water (an additional factor of 250 or more).
+
+9. (continued) 2/5/2
+
+A. As search was previously implemented, because guesses are not mutually
+exclusive, time was often wasted reaching the same configuration by
+different paths. For example, Suppose there are four possible locations (A,
+B, C, and D) for two cruisers and the correct locations are C and D. While
+following up on the guess that a cruiser is in A, the second cruiser may be
+forced or guessed to be in B. Also, while following up on the guess that a
+cruiser is in B, the second cruiser may be forced or guessed to be in
+A. Thus, the same configuration is reached two ways. When this happens, the
+subsequent work is identical. To stop this waste of time, the code was
+revised so that a record of guesses already tested (remember the tests are
+exhaustive) is kept in the world model. And (i) if another guess is to be
+made, none of the recorded guesses is used, and (ii) if a ship is forced to
+be located where a recorded guess put it, work pursuant to the most recent
+guess is stopped. Note that, since copies of the world are forked off
+whenever a guess is made, only the relevant guesses are recorded on any one
+branch.
+
+The data structure for representing a guess has been changed to a
+compressed notation with starting row and column, length, and an
+"in_row" flag (non-zero means ship lies in row, zero means ship lies
+in column).
+
+On 1/23/2, using the C implementations, with searching as originally
+implemented, but after changing the representations and handling of guesses
+and ship locations, on equinox (Sun Ultra 60), using a test suite of 61
+problems, the following results were obtained. Where a single result is
+quoted, the same tests were run several times with very similar results
+(within a few percent).
+
+(i) The "bap" executable (which first constructs then guesses if nothing
+further can be constructed) was tested with the command 
+"time script/test_fast".
+This test gave the result "1.88u 0.59s 0:03.86 63.9%".
+
+(ii) The "bap_search1" executable (which omits all the functions that
+construct ship parts) was compiled with legal_row_across and
+legal_row_beside called in the ship_fits_XXX functions. It was tested with
+the command "time script/test_fast_search1". This test gave the result
+"6.61u 0.54s 0:08.79 81.3%", a little more than 2 times slower than bap.
+
+(iii) The "bap_search1" executable was compiled with legal_row_across and
+legal_row_beside not called in the ship_fits_XXX functions. It was tested
+with the command "time test_fast_search1". This test gave the result 
+"6.78u 0.66s 0:09.17 81.1%", a little more than 2 times slower than bap.
+
+(iv) The bap_search2" executable, which marks no water, was tested with
+with the command "time script/test_fast_search2". This test gave the result
+"372.32u 0.74s 6:17.33 98.8%", about 100 times slower than bap.
+
+With the change in search as described above, the same tests were run on
+2/5/2 with the the following results:
+
+(i) "time script/test_fast": 2.05u 0.71s 0:03.92 70.4%
+
+(ii) "time script/test_fast_search1": 3.49u 0.51s 0:05.70 70.1%
+
+(iii) not repeated without calls to legal_row_across and legal_row_beside
+
+(iv)  "time script/test_fast_search2": 55.27u 0.60s 0:57.43 97.2%
+
+Note that the first test took a tiny bit longer than before, the second
+test took about two-thirds as long as before (but 1.5 times as long as the
+first test), and the fourth test took about one-sixth as long as before
+(but 15 times as long as the first test). This is qualitatively as
+expected. The program that does the most guessing benefits most from
+improved handling of guessing.
+
+9. (continued) 2/5/2
+
+As previously implemented, guesses were being made for battleships, cruisers,
+and destroyers, and the set with the fewest elements was being chosen as
+the best. But this was wasting time, since the number of places a smaller
+ship will fit is always at least as big as the number of places a larger
+ship will fit. The code was simplified to always try the largest remaining
+ships first.
+
+It seems surprising that bap_search1 takes only 1.5 times as long as
+bap. Presumably, the advantage bap has of not searching until all attempts
+at construction have failed (hence rarely backtracking) is somewhat
+offset by the disadvantage of trying a lot of approaches that do not work.
+
+10. 4/4/1
+
+Problem: Is there a way to represent and manipulate arbitrary sets of ships
+about which arbitrary facts are known? Example of arbitrary fact: all the
+battleships and cruisers must fit in columns 3 and 5.
+
+Decisions:
+
+A. We will not try to support this. It is only marginally more powerful
+than ship-placement search, since it is just the simultaneous application
+of individual ship-placement constraints.
+
+10. (continued) 7/19/01
+
+This was not implemented but it may be worth continuing to try to think
+of a good way to do it. Another way of looking at this is that it is
+constructing rules on the fly and then applying them.
+
+Fathom It (a Battleships solver available on the web) handles simultaneous
+constraints, but it is very slow.
+
+11. 4/4/1
+
+Problem: What representations are needed to keep track of square-filling
+search states?
+
+Decision:
+
+A. Have another grid marked with search decision level (A for the first
+guess and 1 for everything implied by it, B for second guess and 2 for its
+implications, etc.).
+
+Considerations:
+
+A. Note: This method does not support ship-placement search.
+
+11. (continued) 7/19/01
+
+The method described above was not implemented. It is not implementable
+with the methods used in the implementation because the state of a
+square might change more than once (from blank to X to a known ship part).
+
+What was implemented is calling solve_bap recursively and making a new
+copy of the puzzle for branch of the search tree.
+
+12. 4/4/1 
+
+Problem: What representations are needed to keep track of which of a
+set of possible guesses have been tried.
+
+Decision: For lists, to find the next guess, take the successor in the
+list of the current guess. For squares in a strip, use the natural
+strip order and keep track of the current.
+
+12. (continued) 7/19/01
+
+Lists were not implemented. Arrays were implemented. The array index
+is used to keep track of what has been tried. Square search was not
+implemented.
+
+Depth-first search is implemented using data-driven programming.  That is,
+there is no explicit stack. The stack of recursive function calls serves as
+the control stack.
+
+13. 4/6/1
+
+Problem: How general should the first implementation be?
+
+Decision: Go a little beyond the standard 10x10 board with 1 battleship,
+2 cruisers, 3 destroyers, and one submarine. 
+
+A. Allow the board to be NxM.
+
+B. Allow the four standard ship types.
+
+C. Allow the standard rules of the game.
+
+D. Allow variable numbers of ships of each type.
+
+Considerations:
+
+The extra breadth should not be expensive in programming time, and should
+make it more interesting to convert the third level from a general solver
+to a general generator of single problems (when that stage is reached).
+
+13. (continued) 7/19/01
+
+These items were implemented as described.
+
+Battleships Rules 4/6/1
+-----------------
+
+1. (fill_bap) When a strip is filled to capacity with ship segments, mark
+the remaining blank squares as water.
+
+2. (try full) If the number of blank squares in a strip equals the number
+of ship segments needed to get the desired total, mark the blank squares as
+ship segments. The type of segment will be identifiable, of course, and any
+ship segment of undetermined type will have its types determined.
+
+Battleship Rules (continued) 7/19/01
+
+The above two rules were implemented as described by fill_bap and try_full,
+respectively. In addition, the following rules were implemented. The
+details of these rules are given with the documentation of the functions.
+
+The way the rules are applied (in solve_bap) is to keep them in a list
+(hard coded) and try them one at a time. As soon as any one of them
+produces a change in the puzzle, go back to the top of the list and
+start over again. If none of them produces a change in the puzzle,
+stop going through the list and call try_guessing.
+
+When the rules are applied and ship parts are placed in the puzzle, they
+are always placed as Xs. Water may also be placed when the Xs are
+placed. The dex_squares function changes the Xs to known ship parts
+whenever possible. The locate_ships function (called immediately after
+verify_squares) recognizes whole ships from contiguous sets of known ship
+parts.
+
+3. (verify_squares) After any change to the puzzle, check to make sure
+everything is legal.  This is needed because incorrect guesses may have
+been made. If anything is not legal, return from solve_bap.
+
+4. (extend_middles) If a ship middle is given in the puzzle statement, try
+to extend it one way or another.
+
+5. (dex_squares) If there are some Xs in the partially worked puzzle, try
+to determine what ship parts they must be.
+
+6. (try_full_but_one) If the number of blank squares in a strip is one more
+than the number of ship segments needed to get the desired total, try to
+determine if any of the blanks must be a ship part in every legal completion
+of the strip. Of course, if there is only one legal completion, it will be
+found in the process.
+
+7. (assign_xxx) For each strip and each of the four types of ship,
+determine one or more ships of that type must be placed somewhere in the
+strip, and assign the ship(s) to that strip. The representation of a
+strip and the representation of the puzzle were composed so as to
+support the notion of assignment.
+
+8. (place_xxx) For each strip and each of three types of ship (submarines
+excluded), if a ship of that type is assigned to the strip, see if
+the ship can be fully or partially located in the strip.
+
+9. (try_square_blank) For each blank square, see if there is any way
+to cover it with a ship. If not, mark it as water.
+
+In addition to the rules above, which run repeatedly, the following two
+rules run once at the beginning of the solution process. The second of
+these does not need to be called again because all the functions which
+place or change ship parts also place as much water as possible at the same
+time.
+
+10. (extend_ends) If a ship end is given, fill in the square next to the
+end.
+
+11. (pad_bap) If any ship parts are given put water around them where water
+must be.
+
+Battleships Rules (continued 9/21/4)
+
+12. (try_cross) See the documentation in the source code. It takes about a
+page to explain. The try_cross function and subordinates were added when it
+was recognized that this would allow gam0411_6.pro to be solved without
+guessing and would make progress on gam0411_5.pro, both of which require
+guessing in the absence of try_cross. It was hoped that the try_cross test
+would make guessing unnecessary for a significant fraction of other
+problems that require guessing when try_cross is not used.  Tests of 52
+other problems requiring guessing, however, found only one more (ftha1.pro)
+on which try_cross made any progress. In this case the number of guesses
+required was reduced from 2 to 1. Dang! Maybe try_cross should be removed.
+(but it took a day and a half to program and is quite general).
+
+Battleships Rules (continued 9/23/4)
+
+13. (try_strip) Not yet implemented. For each strip that must have at least
+two blank squares be water, if there are not too many possibilities,
+construct all legal coverings of the strip using the ships assigned to the
+strip plus all other available ships. If any square is always covered, mark
+it as ship. If any square is never covered, mark it as water. What
+constitutes "too many" possibilities could be measured, for example, by:
+(a) the number of blank squares required to be water (set, for example, to
+a maximum of 4) (b) some arbitrary limit on the number checked (which could
+be increased temporarily if no progress is made and there are more
+possibilities).  The case of one blank square required to be water is
+already handled by try_full_but_one. That function and its subordinates
+could be eliminated if try_strip were implemented with the minimum number
+of blanks required be be water reduced to one. For implementing try_strip,
+it may be useful to add battleships_got, etc. to the attributes of a
+strip. The place_ships_row[col] and place_ships_row[col]_water functions
+are already doing a little of what try_strip would do, but they consider
+only one size ship at a time. Since each square is ship or water, an upper
+bound on the number of possibilities for filling a strip is 2 raised to the
+number of squares in a strip (1024 for 10 squares). That's not a lot on a
+computer, so maybe a limit is not necessary. Since there are limits on the
+numbers of ships of each size, the maximim is probably less than 500.
+
+
+Further Considerations 7/20/01
+----------------------
+
+1. Naming
+
+In anticipation of building a system that will automatically write a
+program to solve one specific Battleships problem (and for other types of
+automatic code writing), somewhat regular naming has been used.
+
+A. "bap" is always an instance of class world.
+
+B. "col" is always a column index. It may be constant during function
+operation or reset (ofter in a for loop).
+
+C. "coln" is always a strip whose index number is col.
+
+D. "is_legal" is always a flag set to 0 or 1, with 1=legal, 0=not legal.
+
+E. "item" is always a single character (but "items" may be anything).
+
+F. "itemN", where N=1,2,3, or 4 is always a single character. 
+
+G. "number_xxx" is always the number of xxx's, for example number_rows
+or number_guesses. However, there are several cases where the number of
+xxx's has a some other sort of name (such as "numb").
+
+H. "row" is always a row index. It may be constant during function
+operation or reset (ofter in a for loop).
+
+I. "rown" is always a strip whose index number is row.
+
+J. "size" is always the number of squares in a ship.
+
+2. Emergent Properties
+
+System behaviors which are not obvious from the code are emergent properties.
+Noticeable emergent properties are usually put in intentionally. Emergent
+properties may cause difficulty for automatic programming because they
+are hard to spot.  There are at least two very important instances
+of emergent behavior:
+
+A. Depth-first search results from recursive calls.
+
+This is nothing new, of course. Depth-first and breadth-first search
+can both be implemented using a stack, but only depth-first can be done
+with recursive function calls.
+
+B. Error handling behavior, generally.
+
+In case of an error, return control through the function call
+stack (i) if there is one, to the first try_guessing or (ii)
+to main. This emerges from the arragement of IFFs and CHKs and
+the behavior of the try_guessing function.
+
+An error may result from either an illegally stated problem, a puzzle
+with no solution, or a bad guess made while trying to solve the puzzle.
+
+3. Hidden Decisions
+
+There are two kinds of hidden decisions: those that manifest themselves
+across a number of functions and can be found by syntactic analysis of the
+of the code (not really hidden, just spread out), and those that are
+completely invisible and could only be discovered after the fact by
+semantic analysis.
+
+The first type of hidden decision includes:
+
+A. The naming conventions above.
+
+B. Always use * for pointers. Do not use &.
+
+C. Always use "for" for loops. Do not use "while", etc.
+
+D. End every function with a "return" statement and do not put return
+statements anywhere else.
+
+E. If a function can return OK, always call it using CHK or IFF.
+
+F. Do not have any functions return void. If a functions does not need
+to return anything, have it return OK.
+
+The second kind of hidden decision includes:
+
+G. Have every function that can do it place water where it recognizes that
+water must go. Since this is done, there is no need to call pad_bap except
+immediately after first reading the puzzle.
+
+H. correct function operation is dependent on some other function (often
+the caller) having taken some action previously (most of these are
+documented in the Notes for some function):
+
+(i) All the functions that set bap->progress to 1 require that
+bap->progress was set to 0 by some other function after the last progress
+report was made.
+
+(ii) Several functions that can set is_legal to 0 require that it was set
+previously to 1.
+
+(iii) locate_ships must be called before mark_dones.

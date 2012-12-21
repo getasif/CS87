@@ -1,0 +1,206 @@
+
+
+OUTLINE
+-------
+
+* ssh stuff, so we don't need password to log into lab machines
+
+ - if you haven't already, generate an ssh key
+
+ $ ssh-keygen -t rsa
+
+ (accept default file for key; use a good passphrase)
+
+ now add public key part to authorized_keys2 file:
+
+ $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys2
+
+ and run the agent to hold your key, then test it:
+
+ $ ssh-agent bash
+ $ ssh-add
+ Enter passphrase for /home/ru1/.ssh/id_rsa: 
+ Identity added: /home/ru1/.ssh/id_rsa (/home/ru1/.ssh/id_rsa)
+ $ ssh cinnamon
+ You are using 14% (5 MB) of your 40 MB quota.
+ cinnamon[~]$ 
+
+ (didn't require a password!)
+
+ cinnamon[~]$ exit
+ $ 
+
+ So from this bash shell on this machine, I can ssh to any 
+ other lab machine without having to type my password (the ssh-agent
+ is taking care of that for me). Next time you log in, only need
+ to run the ssh-agent and ssh-add commands.
+
+ Fun things to try:
+
+fennel[~]$ for i in orange cinnamon lemon
+more> do
+more> echo $i $i $i
+more> ssh $i who
+more> done
+orange orange orange
+cinnamon cinnamon cinnamon
+lemon lemon lemon
+fennel[~]$ 
+
+(use up arrow to edit last command!)
+
+fennel[~]$ for i in orange cinnamon lemon; do echo $i $i $i; ssh $i uptime; done
+orange orange orange
+ 17:16:18 up 37 days, 23:54,  0 users,  load average: 0.00, 0.01, 0.06
+cinnamon cinnamon cinnamon
+ 17:16:18 up 41 days,  1:37,  0 users,  load average: 0.01, 0.04, 0.10
+lemon lemon lemon
+ 17:16:18 up 45 days,  1:51,  0 users,  load average: 0.10, 0.05, 0.05
+
+
+ Now use our hosts.* files to check on all machines in a lab:
+
+fennel[~]$ for i in `cat /usr/swat/db/hosts.robotlab | grep -v ^#`
+more> do
+more> echo $i
+more> ssh $i who
+more> done
+cardamom.cs.swarthmore.edu
+cilantro.cs.swarthmore.edu
+cinnamon.cs.swarthmore.edu
+elderberry.cs.swarthmore.edu
+acannon1 pts/1        Feb 20 16:10 (:0.0)
+nutmeg.cs.swarthmore.edu
+mushroom.cs.swarthmore.edu
+newhall  pts/0        Jan 12 15:21 (anise.cs.swarthmore.edu)
+newhall  pts/1        Jan 12 15:27 (anise.cs.swarthmore.edu)
+saffron.cs.swarthmore.edu
+vinegar.cs.swarthmore.edu
+pkoonc1  pts/0        Feb 20 16:17 (:0.0)
+pkoonc1  pts/1        Feb 20 16:19 (:0.0)
+pkoonc1  pts/2        Feb 20 16:55 (:0.0)
+wasabi.cs.swarthmore.edu
+tarragon.cs.swarthmore.edu
+coconut.cs.swarthmore.edu
+aburka1  pts/0        Feb  5 12:52 (caraway.cs.swarthmore.edu)
+
+
+* also might want to make use of "screen" command !!
+
+* and these MRTG graphs might be useful:
+
+ http://syrup.cs.swarthmore.edu/mrtg-load/
+
+* also useful:
+
+http://www.cs.swarthmore.edu/help/machines.html
+
+* also /proc/cpuinfo and /proc/meminfo:
+
+TAMARIND[~]$ cat /proc/meminfo | grep Total
+MemTotal:        8193028 kB
+SwapTotal:       2072348 kB
+VmallocTotal:   34359738367 kB
+HugePages_Total:       0
+TAMARIND[~]$ cat /proc/cpuinfo | grep MHz
+cpu MHz         : 2814.410
+cpu MHz         : 2814.410
+cpu MHz         : 2814.410
+cpu MHz         : 2814.410
+
+---------------------------------------------------------------
+
+* MPI basics:
+
+https://computing.llnl.gov/tutorials/mpi
+
+---------------------------------------------------------------
+
+Examples to try....
+
+
+* good intro to parallel programming:
+
+https://computing.llnl.gov/tutorials/parallel_comp
+
+(see Parallel Examples section)
+
+PI Calculation:
+--> see dboard.c
+         darts.c   (calls dboard, runs serial version)
+ mpi_pi_reduce.c   (calls dboard, runs parallel version)
+                                  uses MPI_Reduce
+
+
+* Example 4 from here shows simple MPI_Send() and MPI_Recv():
+
+http://hamilton.nuigalway.ie/teaching/AOS/NINE/mpi-first-examples.html
+
+
+
+* More good examples and explanations here:
+
+http://beige.ucs.indiana.edu/I590/node52.html
+
+Greetings, Master:
+--> see greetings.c
+
+TO RUN ON OUR SYSTEMS:
+
+mpicc greetings.c
+mpiexec -n 5 --hostfile hosts.robotlab ./a.out
+
+
+Bank Queue: realistic master/slave example
+--> see bank.c
+
+$ mpicc -o bank bank.c 
+$ mpiexec -n 5 --hostfile hosts.robotlab ./bank 
+0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 2100 2200 2300 2400 2500 2600 2700 2800 2900 3000 3100 3200 3300 3400 3500 3600 3700 3800 3900 4000 4100 4200 4300 4400 4500 4600 4700 4800 4900 5000 5100 5200 5300 5400 5500 5600 5700 5800 5900 6000 6100 6200 6300 6400 6500 6600 6700 6800 6900 7000 7100 7200 7300 7400 7500 7600 7700 7800 7900 8000 8100 8200 8300 8400 8500 8600 8700 8800 8900 9000 9100 9200 9300 9400 9500 9600 9700 9800 9900 
+
+
+* another simpler master/slave example:
+
+http://www.mcs.anl.gov/research/projects/mpi/tutorial/mpiexmpl/src2/io/C/main.html
+--> see anl-master-slave.c
+
+SPINACH[s12]$ mpicc anl-master-slave.c 
+SPINACH[s12]$ mpiexec -n 5 --hostfile hosts.robotlab ./a.out
+Hello from slave 0
+Hello from slave 1
+Hello from slave 2
+Hello from slave 3
+Goodbye from slave 0
+Goodbye from slave 1
+Goodbye from slave 2
+Goodbye from slave 3
+
+
+* using python with MPI:
+
+http://mpi4py.scipy.org/docs/usrman/index.html
+
+--> helloworld.py
+$ mpiexec -n 5 --hostfile hosts.robotlab python helloworld.py 
+Hello, World! I am process 1 of 5 on cilantro.
+Hello, World! I am process 2 of 5 on cinnamon.
+Hello, World! I am process 0 of 5 on cardamom.
+Hello, World! I am process 3 of 5 on elderberry.
+Hello, World! I am process 4 of 5 on nutmeg.
+
+--> mpi_rolldice.py  (simple reduce example)
+$ mpiexec -n 5 --hostfile hosts.robotlab python mpi_rolldice.py 
+--->           elderberry is task  3 <--
+--->               nutmeg is task  4 <--
+--->             cilantro is task  1 <--
+--->             cinnamon is task  2 <--
+using 5 tasks. each does 20 simulations...
+(       cilantro) rank  1 total: 18028
+(       cardamom) rank  0 total: 18980
+(       cinnamon) rank  2 total: 28211
+(     elderberry) rank  3 total: 34509
+(         nutmeg) rank  4 total: 39223
+final result: 1389.5 is ave rolls to get 5-of-a-kind (100 sims)
+
+
+---------------------------------------------------------------

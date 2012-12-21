@@ -1,0 +1,39 @@
+using valgrind:
+--------------
+
+  (1) compile with -g to get line number info in a.out
+
+      (just type make)
+
+  (2) run:
+	% valgrind ./badprogram
+
+
+some valgrind options to try:
+----------------------------
+
+  * see valgrind help info
+
+	% valgrind --help
+
+  * more verbose output
+
+	% valgrind -v ./badprogram
+
+
+  * to enable attaching gdb after each error valgrind finds
+
+	% valgrind --gdb-attach=yes
+
+
+  * to send all valgrind output to a file named valoutput.<process id> 
+
+	%valgrind --logfile=valoutput ./badprogram
+
+  * to enable memory leak error reporting
+
+	% valgrind --leak-check=yes ./badprogram
+
+
+---------------------------------------------------------------------
+purify and purifyplus directions in Makefile.solaris and purify.readme

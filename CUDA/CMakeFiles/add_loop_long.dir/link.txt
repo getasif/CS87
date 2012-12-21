@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   ./add_loop_long_generated_add_loop_long.cu.o  -o add_loop_long -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib /usr/local/lib/libcudart.so -lcuda libbook.a libtimers.a /usr/local/lib/libcudart.so -lcuda -Wl,-rpath,/usr/local/src/NVIDIA_CUDA_SDK/lib:/usr/local/lib 

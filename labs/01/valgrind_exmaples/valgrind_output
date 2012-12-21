@@ -1,0 +1,152 @@
+% valgrind ./badprog
+
+==6241== Memcheck, a memory error detector.
+==6241== Copyright (C) 2002-2006, and GNU GPL'd, by Julian Seward et al.
+==6241== Using LibVEX rev 1658, a library for dynamic binary translation.
+==6241== Copyright (C) 2004-2006, and GNU GPL'd, by OpenWorks LLP.
+==6241== Using valgrind-3.2.1-Debian, a dynamic binary instrumentation framework.
+==6241== Copyright (C) 2000-2006, and GNU GPL'd, by Julian Seward et al.
+==6241== For more details, rerun with: -v
+==6241== 
+--6241-- DWARF2 CFI reader: unhandled CFI instruction 0:50
+--6241-- DWARF2 CFI reader: unhandled CFI instruction 0:50
+==6241== Invalid write of size 1
+==6241==    at 0x804843C: foo (main.c:29)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165073 is 14 bytes after a block of size 5 alloc'd
+==6241==    at 0x401D38B: malloc (vg_replace_malloc.c:149)
+==6241==    by 0x80483EF: foo (main.c:18)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x401E208: strlen (mc_replace_strmem.c:246)
+==6241==    by 0x4071113: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165073 is 14 bytes after a block of size 5 alloc'd
+==6241==    at 0x401D38B: malloc (vg_replace_malloc.c:149)
+==6241==    by 0x80483EF: foo (main.c:18)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x401E211: strlen (mc_replace_strmem.c:246)
+==6241==    by 0x4071113: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165074 is 15 bytes after a block of size 5 alloc'd
+==6241==    at 0x401D38B: malloc (vg_replace_malloc.c:149)
+==6241==    by 0x80483EF: foo (main.c:18)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x409181A: _IO_file_xsputn (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4070D76: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165078 is not stack'd, malloc'd or (recently) free'd
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x4091836: _IO_file_xsputn (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4070D76: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165077 is not stack'd, malloc'd or (recently) free'd
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x4091763: _IO_file_xsputn (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4070D76: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484AC: main (main.c:49)
+==6241==  Address 0x4165073 is 14 bytes after a block of size 5 alloc'd
+==6241==    at 0x401D38B: malloc (vg_replace_malloc.c:149)
+==6241==    by 0x80483EF: foo (main.c:18)
+==6241==    by 0x80484AC: main (main.c:49)
+a = ssssssP, b = bbbb c = ssssss
+s = ssssss
+==6241== 
+==6241== Use of uninitialised value of size 4
+==6241==    at 0x804843C: foo (main.c:29)
+==6241==    by 0x80484E4: main (main.c:54)
+==6241== 
+==6241== Invalid write of size 1
+==6241==    at 0x804843C: foo (main.c:29)
+==6241==    by 0x80484E4: main (main.c:54)
+==6241==  Address 0x4165000 is not stack'd, malloc'd or (recently) free'd
+==6241== 
+==6241== Conditional jump or move depends on uninitialised value(s)
+==6241==    at 0x401E20B: strlen (mc_replace_strmem.c:246)
+==6241==    by 0x4071113: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484E4: main (main.c:54)
+==6241== 
+==6241== Conditional jump or move depends on uninitialised value(s)
+==6241==    at 0x406E456: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484E4: main (main.c:54)
+==6241== 
+==6241== Use of uninitialised value of size 4
+==6241==    at 0x401E208: strlen (mc_replace_strmem.c:246)
+==6241==    by 0x4071113: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x8048467: foo (main.c:34)
+==6241==    by 0x80484E4: main (main.c:54)
+a = , b = bbbb c = 
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x8048412: foo (main.c:23)
+==6241==    by 0x80484FA: main (main.c:56)
+==6241==  Address 0x4165098 is 0 bytes inside a block of size 8 free'd
+==6241==    at 0x401CFA5: free (vg_replace_malloc.c:233)
+==6241==    by 0x80484EF: main (main.c:55)
+==6241== 
+==6241== Invalid read of size 1
+==6241==    at 0x8048439: foo (main.c:29)
+==6241==    by 0x80484FA: main (main.c:56)
+==6241==  Address 0x4165098 is 0 bytes inside a block of size 8 free'd
+==6241==    at 0x401CFA5: free (vg_replace_malloc.c:233)
+==6241==    by 0x80484EF: main (main.c:55)
+==6241== 
+==6241== Invalid write of size 1
+==6241==    at 0x804843C: foo (main.c:29)
+==6241==    by 0x80484FA: main (main.c:56)
+==6241==  Address 0x4165100 is 8 bytes before a block of size 5 alloc'd
+==6241==    at 0x401D38B: malloc (vg_replace_malloc.c:149)
+==6241==    by 0x80483EF: foo (main.c:18)
+==6241==    by 0x80484FA: main (main.c:56)
+a = , b = bbbb c = 
+s = xxxx
+==6241== 
+==6241== Conditional jump or move depends on uninitialised value(s)
+==6241==    at 0x401E20B: strlen (mc_replace_strmem.c:246)
+==6241==    by 0x4071113: vfprintf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x4076322: printf (in /lib/tls/libc-2.3.6.so)
+==6241==    by 0x804854B: main (main.c:62)
+s = 
+==6241== 
+==6241== Invalid free() / delete / delete[]
+==6241==    at 0x401CFA5: free (vg_replace_malloc.c:233)
+==6241==    by 0x8048561: main (main.c:64)
+==6241==  Address 0x4165178 is 0 bytes inside a block of size 8 free'd
+==6241==    at 0x401CFA5: free (vg_replace_malloc.c:233)
+==6241==    by 0x8048556: main (main.c:63)
+==6241== 
+==6241== ERROR SUMMARY: 62 errors from 16 contexts (suppressed: 11 from 1)
+==6241== malloc/free: in use at exit: 23 bytes in 4 blocks.
+==6241== malloc/free: 7 allocs, 4 frees, 47 bytes allocated.
+==6241== For counts of detected errors, rerun with: -v
+==6241== searching for pointers to 4 not-freed blocks.
+==6241== checked 60,148 bytes.
+==6241== 
+==6241== LEAK SUMMARY:
+==6241==    definitely lost: 23 bytes in 4 blocks.
+==6241==      possibly lost: 0 bytes in 0 blocks.
+==6241==    still reachable: 0 bytes in 0 blocks.
+==6241==         suppressed: 0 bytes in 0 blocks.
+==6241== Use --leak-check=full to see details of leaked memory.

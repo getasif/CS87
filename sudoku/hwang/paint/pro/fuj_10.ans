@@ -1,0 +1,49 @@
+           21232221
+          121112222533223
+          ---------------
+     2  2|XX..........XX.|
+     3  4|.XXX.......XXXX|
+  2  1  1|...XX......X..X|
+  1  2  1|....X.....XX..X|
+     2  1|....XX....X....|
+     2  1|.....XX...X....|
+     2  1|......XX.X.....|
+        3|.......XXX.....|
+        1|.........X.....|
+        1|.........X.....|
+        2|........XX.....|
+        2|.......XX......|
+     1  2|.X....XX.......|
+     1  2|.X...XX........|
+        4|..XXXX.........|
+          ---------------
+
+
+EXPLANATION
+-----------
+read problem
+mark empty corner squares in row 15 
+mark empty edge squares in row 15 and column 15 
+mark surely full squares and empties in row 15 
+mark surely empty squares in column 4 
+guess block 5 long is in column starting at row 7 and column 10 
+mark surely full squares and empties in rows 9 10 and column 10 
+mark surely empty squares in rows 8 11 and column 15 
+guess block 4 long is in row starting at row 15 and column 3 
+mark surely full squares and empties in row 15 and column 6 
+mark surely empty squares in columns 3 5 6 
+guess block 4 long is in row starting at row 2 and column 12 
+mark surely full squares and empties in columns 12 15 
+mark surely empty squares in row 2 and columns 12 13 14 15 
+mark empty squares where no room in rows 12 14 and column 11 
+mark surely full squares and empties in rows 8 11 and column 9 
+mark surely empty squares in rows 3 7 and column 11 
+mark empty squares where no room in column 11 
+mark surely full squares and empties in rows 8 12 14 and columns 7 8 11 13 14 
+mark surely empty squares in column 4 
+mark surely full squares and empties in row 7 and column 7 
+mark surely empty squares in row 1 
+mark surely full squares and empties in row 6 and columns 5 6 12 15 
+mark surely full squares and empties in rows 2 3 5 and columns 2 3 5 
+mark surely empty squares in column 4 
+mark surely full squares and empties in rows 1 4 13 14 and columns 1 4 

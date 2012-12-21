@@ -1,0 +1,144 @@
+pro10_10/gam01074.ans
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+find_min_starts_col: Puzzle has no answer
+place_ships_col
+place_cruisers
+solve_bap
+find_min_starts_col: Puzzle has no answer
+place_ships_col
+place_cruisers
+solve_bap
+find_min_starts_col: Puzzle has no answer
+place_ships_col
+place_cruisers
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+assign_cruisers: Puzzle has no answer
+solve_bap
+assign_cruisers: Puzzle has no answer
+solve_bap
+assign_destroyers: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_col: Puzzle has no answer too many cruisers
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+assign_destroyers: Puzzle has no answer
+solve_bap
+assign_cruisers: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+assign_destroyers: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_row: Puzzle has no answer too many submarines
+locate_ships
+solve_bap
+
+  - - - - - - - - - -
+ |. . . . . ^ . < > .|3
+ |. . . O . + . . . .|2
+ |^ . . . . v . . . .|2
+ |v . . . . . . . ^ .|2
+ |. . . . . . . . + .|1
+ |. . . . O . . . + .|2
+ |. O . . . . . . v .|2
+ |. . . . . . ^ . . .|1
+ |. . . . . . v . . O|2
+ |. < + > . . . . . .|3
+  - - - - - - - - - -
+  2 2 1 2 1 3 2 1 5 1 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water
+fill with water column 10 
+assign battleship to column 9 
+place battleship parts and/or water in column 9 
+must be water in square at intersection of row 2 and column 8 
+guess battleship is in column starting at row 4 and column 9 
+fill with water rows 5 7 
+assign submarine to row 6 
+must be water in square at intersection of row 2 and column 2 
+must be water in square at intersection of row 2 and column 9 
+fill blanks with ship in column 9 
+must be water in square at intersection of row 4 and column 2 
+must be water in square at intersection of row 4 and column 3 
+must be water in square at intersection of row 4 and column 4 
+must be water in square at intersection of row 4 and column 5 
+must be water in square at intersection of row 8 and column 4 
+must be water in square at intersection of row 8 and column 5 
+must be water in square at intersection of row 9 and column 2 
+must be water in square at intersection of row 9 and column 3 
+fill blanks with ship in column 3 
+must be water in square at intersection of row 9 and column 5 
+must be water in square at intersection of row 9 and column 8 
+guess cruiser is in row starting at row 10 and column 2 
+fill with water row 10 and columns 2 4 
+fill blanks with ship in columns 5 8 
+fill with water row 6 
+identify ship parts
+guess cruiser is in column starting at row 1 and column 6 
+fill with water rows 1 2 and column 6 
+identify ship parts
+fill blanks with ship in rows 3 4 8 9 
+identify ship parts

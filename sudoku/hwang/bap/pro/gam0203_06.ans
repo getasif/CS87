@@ -1,0 +1,39 @@
+  - - - - - - - - - -
+ |. < > . . . . . . .|2
+ |. . . . . . < + + >|4
+ |^ . . . . . . . . .|1
+ |v . ^ . . . ^ . O .|4
+ |. . v . O . + . . .|3
+ |O . . . . . v . . .|2
+ |. . . . . . . . . .|0
+ |. . O . . . . . . .|1
+ |. . . . . . . . . .|0
+ |. . . . . < + > . .|3
+  - - - - - - - - - -
+  3 1 4 0 1 1 5 2 2 1 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water
+fill with water rows 7 9 and column 4 
+fill blanks that must be ship in row 5 
+fill with water column 5 
+fill blanks that must be ship in row 4 
+assign submarine to row 8 
+guess battleship is in row starting at row 2 and column 7 
+fill with water row 2 and columns 9 10 
+fill blanks with ship in row 6 
+identify ship parts
+fill blanks with ship in row 5 
+identify ship parts
+fill blanks with ship in row 4 
+identify ship parts
+guess cruiser is in row starting at row 10 and column 6 
+fill with water row 10 and columns 6 7 8 
+identify ship parts
+fill blanks with ship in row 3 and column 3 
+fill with water row 8 and column 1 
+identify ship parts
+fill blanks with ship in row 1 
+identify ship parts

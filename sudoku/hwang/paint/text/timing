@@ -1,0 +1,49 @@
+Timing results for two version of bin/paint on June 12, 2002.
+One version does not use try_contradict, but does use try_guessing.
+The other version uses both.
+
+The time trials were conducted on eleven of Fujiwara's problems
+that cannot be solved if neither try_contradict nor try_guessing
+is used. The first five of these cannot be solved without try_guessing.
+The other six can be solved without try_guessing.
+
+All trials were run with commands of the form
+  time bin/paint_con_no pro/fuj_XX.pro no   or
+  time bin/paint_con_yes pro/fuj_XX.pro no
+
+The versions that ran would find all solutions. In each case, there
+was only one solution.
+
+Results without try_contradict
+
+  fuj_07.pro 96.09u 0.58s 1:37.32 99.3%
+  fuj_10.pro 1.70u 0.03s 0:01.76 98.2%
+  fuj_11.pro 3.24u 0.09s 0:03.41 97.6%
+  fuj_12.pro 1.02u 0.02s 0:01.08 96.2%
+  fuj_21.pro 23.65u 0.13s 0:23.94 99.3%
+
+  fuj_08.pro 0.33u 0.03s 0:00.41 87.8%
+  fuj_09.pro 0.78u 0.04s 0:00.85 96.4%
+  fuj_14.pro 0.13u 0.01s 0:00.17 82.3%
+  fuj_18.pro 0.23u 0.00s 0:00.33 69.6%
+  fuj_19.pro 1.75u 0.04s 0:01.83 97.8%
+  fuj_20.pro 34.65u 0.22s 0:34.95 99.7%
+
+Results with try_contradict
+
+  fuj_07.pro 511.20u 0.08s 8:33.30 99.6%
+  fuj_10.pro 39.81u 0.00s 0:40.02 99.4%
+  fuj_11.pro 191.92u 0.08s 3:13.63 99.1%
+  fuj_12.pro 40.67u 0.01s 0:40.79 99.7%
+  fuj_21.pro 791.30u 0.47s 13:16.75 99.3%
+
+  fuj_08.pro 24.47u 0.05s 0:28.31 86.6%
+  fuj_09.pro 120.95u 0.02s 2:01.32 99.7%
+  fuj_14.pro 0.33u 0.02s 0:00.43 81.3%
+  fuj_18.pro 11.90u 0.08s 0:12.61 95.0%
+  fuj_19.pro 43.07u 0.02s 0:46.29 93.0%
+  fuj_20.pro 923.53u 0.04s 15:40.07 98.2%
+
+The results show the version without is 20 to 60 times as fast in
+8 of the 11 cases. In the other three cases it is 2.5, 5, and 150
+times as fast.

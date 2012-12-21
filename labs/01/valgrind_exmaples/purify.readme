@@ -1,0 +1,65 @@
+This is an example program with memory access errors with a Makefile
+for building on Linux to use purifyplus and valgrind.  Makefile.solaris 
+is a Makefile for building this example on Solaris for use with purify.
+
+Unfortunately, the memory profiling support of the Linux version of purifyplus 
+is not nearly as complete, nor as useful, as the Solaris version of purify. 
+However, it will still provide some useful information.  In addition, on
+Linux you can use valgrind, which does report a pretty complete set of
+memory access errors.  To run valgrind on Linux just compile with -g, then 
+run: valgrind -v ./a.out
+
+Using this Example with purify on Solaris
+-----------------------------------------
+(1) First read purify howto: 
+	http://www.cs.swarthmore.edu/~newhall/purify.html#solaris
+
+(2) copy Makefile.solaris to Makefile
+
+(3) set your RSU_LICENSE_MAP environment variables
+
+(4) do make clean followed by a make pure, 
+
+(5) then run the executable and the purify window will pop up 
+
+
+Using this example with PurifyPlus on Linux
+--------------------------------------------
+
+(1) First read purify howto: 
+	http://www.cs.swarthmore.edu/~newhall/purify.html#linux
+
+(2) Then build the program:
+    (b) copy Makefile.linux to Makefile
+
+    (a) set purify env. vars
+
+	for bash shell run:
+        -------------------
+	% . /usr/local/Rational/releases/PurifyPlusForLinux.2003.06.00/ppluslinuxinit.csh
+
+        for tcsh shell run:
+        -------------------
+	% source /usr/local/Rational/releases/PurifyPlusForLinux.2003.06.00/ppluslinuxinit.csh 
+
+    (b)  build a purified executable: 
+
+	check that the correct definition for CC is uncommented out 
+	in Makefile:
+
+	CC =  
+
+	then do:
+
+	% make clean
+	% make
+
+(3) run the executable:
+
+	% ./badprog
+
+(4) view memory and profile traces in purifyplus
+
+	% atlsplit atlout.spt
+	% studio *.tsf *.fdc *.tio *.tqf *.tdf *.tpf
+

@@ -1,0 +1,23 @@
+  - - - - - - -
+ |. . . . ^ . .|1
+ |< > . . v . .|3
+ |. . . . . . ^|1
+ |O . < + > . +|5
+ |. . . . . . v|1
+ |. . . . . . .|0
+ |. . < + > . .|3
+  - - - - - - -
+  2 1 2 2 4 0 3 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water row 6 and columns 2 6 
+fill blanks with ship in row 4 and column 5 
+fill with water rows 1 2 and column 1 
+identify ship parts
+fill blanks with ship in rows 3 5 and columns 3 4 
+fill with water row 7 
+identify ship parts

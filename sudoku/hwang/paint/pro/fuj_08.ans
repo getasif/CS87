@@ -1,0 +1,138 @@
+                    1
+               2 2 121   12
+              4212211112233
+             232113221112144
+             ---------------
+        3  3|..XXX......XXX.|
+  2  2  2  2|.XX.XX....XX.XX|
+  1  1  1  1|.X...X....X...X|
+     1  4  1|.X....XXXX....X|
+        2  2|.XX..........XX|
+        1  1|..X..........X.|
+     1  1  1|....X..X.....X.|
+     1  1  1|....X..X....X..|
+        2  1|XX..........X..|
+     2  1  2|XX......X...XX.|
+     2  3  1|.XX..XXX.....X.|
+        4  1|..XXXX.......X.|
+        2  2|.....XX.....XX.|
+        2  1|......XX...X...|
+           5|.......XXXXX...|
+             ---------------
+
+
+EXPLANATION
+-----------
+read problem
+mark empty corner squares in rows 1 2 15 
+mark empty edge squares in row 15 and column 15 
+mark surely full squares and empties in column 14 
+mark surely empty squares in row 11 
+mark full square where empty impossible at row 1 and column 13 
+mark surely empty squares in column 13 
+mark empty square where full impossible at row 1 and column 8 
+mark empty square where full impossible at row 1 and column 9 
+mark surely empty squares in row 1 
+mark empty square where full impossible at row 1 and column 11 
+mark surely full squares and empties in row 1 and column 14 
+mark surely empty squares in column 14 
+mark surely full squares and empties in row 2 and column 15 
+mark surely empty squares in column 15 
+mark surely empty squares in row 4 
+mark surely full squares and empties in column 14 
+mark surely empty squares in rows 7 12 
+mark empty square where full impossible at row 2 and column 4 
+mark empty square where full impossible at row 3 and column 1 
+mark full square where empty impossible at row 3 and column 2 
+mark surely full squares and empties in column 2 
+mark surely empty squares in row 3 
+mark surely empty squares in row 4 
+mark full square where empty impossible at row 1 and column 3 
+mark surely full squares and empties in row 1 and column 3 
+mark surely empty squares in row 1 
+mark surely full squares and empties in row 2 
+mark empty square where full impossible at row 3 and column 5 
+mark empty square where full impossible at row 3 and column 7 
+mark empty square where full impossible at row 3 and column 8 
+mark empty square where full impossible at row 3 and column 9 
+mark full square where empty impossible at row 3 and column 6 
+mark full square where empty impossible at row 2 and column 6 
+mark surely empty squares in column 6 
+mark empty squares where no room in row 4 
+mark surely full squares and empties in row 4 
+mark empty or full squares for block in column 10 
+mark empty square where full impossible at row 2 and column 10 
+mark empty square where full impossible at row 3 and column 4 
+mark full square where empty impossible at row 3 and column 11 
+mark surely full squares and empties in row 3 
+mark empty square where full impossible at row 5 and column 1 
+mark empty square where full impossible at row 5 and column 4 
+mark empty square where full impossible at row 1 and column 2 
+mark surely full squares and empties in row 1 and columns 2 5 
+mark surely empty squares in column 2 
+mark surely full squares and empties in row 5 and column 3 
+mark surely empty squares in row 2 and column 3 
+mark empty or full squares for block in row 6 
+mark empty corner squares in row 5 
+mark empty square where full impossible at row 5 and column 6 
+mark empty square where full impossible at row 5 and column 7 
+mark empty square where full impossible at row 5 and column 8 
+mark surely empty squares in row 5 
+mark empty square where full impossible at row 5 and column 11 
+mark empty square where full impossible at row 6 and column 1 
+mark empty square where full impossible at row 6 and column 5 
+mark empty square where full impossible at row 6 and column 6 
+mark empty square where full impossible at row 6 and column 7 
+mark empty square where full impossible at row 6 and column 8 
+mark empty square where full impossible at row 6 and column 9 
+mark empty square where full impossible at row 6 and column 10 
+mark empty square where full impossible at row 6 and column 11 
+mark empty square where full impossible at row 6 and column 12 
+mark empty square where full impossible at row 7 and column 1 
+mark empty square where full impossible at row 7 and column 2 
+mark empty square where full impossible at row 7 and column 4 
+mark empty square where full impossible at row 7 and column 6 
+mark empty square where full impossible at row 7 and column 10 
+mark empty square where full impossible at row 7 and column 11 
+mark empty square where full impossible at row 8 and column 1 
+mark empty square where full impossible at row 8 and column 2 
+mark empty square where full impossible at row 8 and column 4 
+mark empty square where full impossible at row 8 and column 6 
+mark empty square where full impossible at row 8 and column 7 
+mark full square where empty impossible at row 8 and column 8 
+mark empty or full squares for block in row 8 
+mark full square where empty impossible at row 1 and column 12 
+mark surely full squares and empties in row 1 and columns 12 15 
+mark surely full squares and empties in rows 2 5 and columns 8 13 14 
+mark surely empty squares in columns 11 12 13 14 
+mark surely full squares and empties in row 4 
+mark surely empty squares in rows 8 9 
+mark empty squares where no room in column 12 
+mark surely full squares and empties in column 14 
+mark surely full squares and empties in row 13 and column 13 
+mark surely empty squares in row 13 
+mark full square where empty impossible at row 7 and column 5 
+mark surely full squares and empties in column 5 
+mark surely empty squares in column 5 
+mark surely full squares and empties in row 8 
+mark empty square where full impossible at row 7 and column 7 
+mark full square where empty impossible at row 7 and column 8 
+mark surely full squares and empties in row 7 
+mark surely empty squares in column 8 
+mark empty square where full impossible at row 9 and column 3 
+mark empty squares where no room in row 9 
+mark empty square where full impossible at row 9 and column 6 
+mark empty squares where no room in row 9 
+mark full square where empty impossible at row 9 and column 1 
+mark surely full squares and empties in row 9 and columns 1 2 
+mark surely full squares and empties in row 11 
+mark surely empty squares in rows 10 11 and column 3 
+mark surely full squares and empties in row 15 and columns 3 8 
+mark surely empty squares in column 8 
+mark surely full squares and empties in row 12 and columns 4 5 7 
+mark surely empty squares in column 6 
+mark surely full squares and empties in row 15 and columns 10 11 
+mark surely empty squares in row 14 
+mark empty squares where no room in rows 11 13 and column 12 
+mark surely full squares and empties in rows 10 11 13 and columns 6 7 8 12 14 
+mark surely full squares and empties in rows 10 11 

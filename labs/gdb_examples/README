@@ -1,0 +1,83 @@
+This file has some basic information about 
+  (1) compiling, 
+  (2) running gdb, 
+  (3) attaching gdb to an already running process, and 
+  (4) a few notes about gdb and C++.  
+  
+See www.cs.swarthmore.edu/~newhall/debugging.html for more detailed 
+information about gdb and other debugging tools.
+------------------------------------------------------------------
+(1) always compile .o and executable files with -g
+
+	% gcc -g -o myprog main.c
+
+    of course you should always use a Makefile and add -g to the build rules 
+
+    or for cs21 if you compile with the gccx compiler it automatically 
+    inculdes the -g flag for you
+
+(2) to start a program in the debugger
+
+	% gdb ./a.out
+
+	% ddd ./a.out	   # ddd is the GUI interface to gdb
+
+	you will get the gdb prompt before it starts executing myprog code
+
+	you can add breakpoints here, then start program running
+
+	(gdb) run
+
+	OR if myprog has command line arguments
+
+	(gdb) run arg1 arg2 ... argn
+
+
+(3) to attach gdb to an already running program
+
+	(a) get the process id, pid, for the program
+
+	   for example, to get the pid of my infiniteloop process:
+
+	   	% ls
+		  PID TTY          TIME CMD
+		  15586 pts/15   00:00:00 tcsh
+		  29390 pts/15   00:00:01 infiniteloop
+		  ^^^^^
+
+	(b) attach gdb to it 
+
+            Two was: 
+
+              (1) start new gdb specifying pid 
+
+		   gdb executable name <pid>
+
+	   	$ gdb infiniteloop  29390 
+      
+              (2) from within gdb use attach command
+
+                  attach <pid>
+
+                $ gdb infiniteloop
+                (gdb) attach 29390 
+
+                 
+
+C++ oddities:
+------------
+For C++ programs you need to specify methods and data members using the 
+"classname::"  prefix.  In addition, you often need to use a leading ' before 
+the name for gdb to find the symbol.  Also, if methods are overloaded you 
+need to specify which method it is by listing its full prototype (actually, 
+if you hit <TAB> gdb will list all possible matches for you and you can pick 
+one of those).
+
+For example, to set a break point in funciton pinPage of the BufMgr class, 
+I'd do the following:
+
+	(gdb) break 'BufMgr::pinPage(int, Page *&, int)'
+	
+	   really I'd type 'BufMgr::p    <then hit TAB for completion>
+
+	   'BufMgr:: <tab> will list all methods of the BufMgr class

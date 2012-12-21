@@ -1,0 +1,2 @@
+/usr/bin/ar cr libbook.a  ./book_generated_book.cu.o
+/usr/bin/ranlib libbook.a

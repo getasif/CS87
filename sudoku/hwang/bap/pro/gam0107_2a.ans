@@ -1,0 +1,50 @@
+  - - - - - - - -
+ |. . . . . O . .|1
+ |. < + > . . . O|4
+ |. . . . . O . .|1
+ |^ . . . . . . ^|2
+ |v . < + + > . +|6
+ |. . . . . . . v|1
+ |. . . O . . . .|1
+ |< > . . . < > .|4
+  - - - - - - - -
+  3 2 2 3 1 4 1 4 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+must be water in square at intersection of row 4 and column 2 
+must be water in square at intersection of row 4 and column 3 
+must be water in square at intersection of row 4 and column 5 
+must be water in square at intersection of row 4 and column 7 
+must be water in square at intersection of row 6 and column 2 
+must be water in square at intersection of row 6 and column 3 
+must be water in square at intersection of row 6 and column 5 
+must be water in square at intersection of row 6 and column 7 
+must be water in square at intersection of row 7 and column 2 
+guess battleship is in row starting at row 5 and column 3 
+fill with water columns 3 5 
+fill blanks with ship in rows 4 5 and column 2 
+identify ship parts
+must be water in square at intersection of row 1 and column 7 
+must be water in square at intersection of row 2 and column 7 
+must be water in square at intersection of row 7 and column 6 
+must be water in square at intersection of row 7 and column 7 
+fill blanks with ship in column 7 
+fill blanks with ship in row 7 
+guess cruiser is in row starting at row 2 and column 2 
+fill with water column 4 
+identify ship parts
+guess cruiser is in column starting at row 4 and column 8 
+fill with water row 6 
+identify ship parts
+fill blanks with ship in row 3 and column 1 
+identify ship parts
+fill blanks that must be ship in column 6 
+fill with water row 8 
+identify ship parts
+fill blanks that must be ship in columns 6 8 
+fill with water rows 1 2 
+identify ship parts

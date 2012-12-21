@@ -1,0 +1,8 @@
+Notes on Sudoku Solver
+Jan. 17, 2006
+
+This version of a sudoku solver solver starts by filling in the
+alternatives for every square, and then proceeds by examining the
+alternatives.
+
+

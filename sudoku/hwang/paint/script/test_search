@@ -1,0 +1,43 @@
+echo "pro/fuj_07.pro"
+bin/paint pro/fuj_07.pro one no
+read whocares
+echo "pro/fuj_08.pro"
+bin/paint pro/fuj_08.pro one no
+read whocares
+echo "pro/fuj_09.pro"
+bin/paint pro/fuj_09.pro one no
+read whocares
+echo "pro/fuj_10.pro"
+bin/paint pro/fuj_10.pro one no
+read whocares
+echo "pro/fuj_11.pro"
+bin/paint pro/fuj_11.pro one no
+read whocares
+echo "pro/fuj_12.pro"
+bin/paint pro/fuj_12.pro one no
+read whocares
+echo "pro/fuj_14.pro"
+bin/paint pro/fuj_14.pro one no
+read whocares
+echo "pro/fuj_15.pro"
+bin/paint pro/fuj_15.pro one no
+read whocares
+echo "pro/fuj_18.pro"
+bin/paint pro/fuj_18.pro one no
+read whocares
+echo "pro/fuj_19.pro"
+bin/paint pro/fuj_19.pro one no
+read whocares
+echo "pro/fuj_20.pro"
+bin/paint pro/fuj_20.pro one no
+read whocares
+echo "pro/fuj_21.pro"
+bin/paint pro/fuj_21.pro one no
+
+read whocares
+echo "pro/schi_01.pro"
+bin/paint pro/schi_01.pro one no
+
+read whocares
+echo "pro/wol_1.pro"
+bin/paint pro/wol_1.pro one no

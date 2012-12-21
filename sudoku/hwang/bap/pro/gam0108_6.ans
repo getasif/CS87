@@ -1,0 +1,52 @@
+pro10_10/gam01086.ans
+find_min_starts_row: Puzzle has no answer
+place_ships_row
+place_cruisers
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+
+  - - - - - - - - - -
+ |. . . . . < + + > .|4
+ |. . O . . . . . . .|1
+ |. . . . . . < + > .|3
+ |O . . . . . . . . .|1
+ |. . . . . . . . . O|1
+ |. . ^ . < > . . . .|3
+ |. . v . . . . . . .|1
+ |. . . . . . . . . .|0
+ |. . . . . . . . < >|2
+ |O . < + > . . . . .|4
+  - - - - - - - - - -
+  2 0 4 1 2 2 2 2 3 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water
+fill with water rows 2 4 5 8 and columns 1 2 
+fill blanks that must be ship in column 3 
+assign battleship to row 1 
+place battleship parts and/or water in row 1 
+must be water in square at intersection of row 7 and column 7 
+must be water in square at intersection of row 7 and column 8 
+must be water in square at intersection of row 7 and column 9 
+must be water in square at intersection of row 7 and column 10 
+assign cruiser to rows 3 10 
+guess battleship is in row starting at row 1 and column 6 
+must be water in square at intersection of row 7 and column 6 
+must be water in square at intersection of row 6 and column 4 
+fill blanks that must be ship in column 3 
+fill with water row 7 
+identify ship parts
+guess cruiser is in row starting at row 3 and column 7 
+fill with water row 3 and columns 7 8 
+fill blanks with ship in row 6 
+fill with water column 6 
+identify ship parts
+place cruiser parts and/or water in row 10 
+identify ship parts
+fill blanks with ship in row 9 
+identify ship parts

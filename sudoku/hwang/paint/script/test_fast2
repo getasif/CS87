@@ -1,0 +1,71 @@
+echo ""
+echo "pro/ains_1.pro"
+bin/paint pro/ains_1.pro one no
+echo ""
+echo "pro/ains_2.pro"
+bin/paint pro/ains_2.pro one no
+
+echo ""
+echo "pro/fuj_01.pro"
+bin/paint pro/fuj_01.pro one no
+echo ""
+echo "pro/fuj_02.pro"
+bin/paint pro/fuj_02.pro one no
+echo ""
+echo "pro/fuj_05.pro"
+bin/paint pro/fuj_05.pro one no
+echo ""
+echo "pro/fuj_06.pro"
+bin/paint pro/fuj_06.pro one no
+echo ""
+echo "pro/fuj_13.pro"
+bin/paint pro/fuj_13.pro one no
+echo ""
+echo "pro/fuj_16.pro"
+bin/paint pro/fuj_16.pro one no
+echo ""
+echo "pro/fuj_17.pro"
+bin/paint pro/fuj_17.pro one no
+
+echo ""
+echo "pro/gam0202_1.pro"
+bin/paint pro/gam0202_1.pro one no
+echo ""
+echo "pro/gam0202_2.pro"
+bin/paint pro/gam0202_2.pro one no
+echo ""
+echo "pro/gam0202_3.pro"
+bin/paint pro/gam0202_3.pro one no
+echo ""
+echo "pro/gam0202_4.pro"
+bin/paint pro/gam0202_4.pro one no
+echo ""
+echo "pro/gam0203_1.pro"
+bin/paint pro/gam0203_1.pro one no
+echo ""
+echo "pro/gam0203_2.pro"
+bin/paint pro/gam0203_2.pro one no
+echo ""
+echo "pro/gam0203_3.pro"
+bin/paint pro/gam0203_3.pro one no
+echo ""
+echo "pro/gam0203_4.pro"
+bin/paint pro/gam0203_4.pro one no
+echo ""
+echo "pro/gam0203_5.pro"
+bin/paint pro/gam0203_5.pro one no
+echo ""
+echo "pro/gam0203_6.pro"
+bin/paint pro/gam0203_6.pro one no
+
+echo ""
+echo "pro/gri_1.pro"
+bin/paint pro/gri_1.pro one no
+
+echo ""
+echo "pro/sots_59.pro"
+bin/paint pro/sots_59.pro one no
+echo ""
+echo "pro/sots_95.pro"
+bin/paint pro/sots_95.pro one no
+

@@ -1,0 +1,56 @@
+                             11
+                          2 12112
+                    11111341311311
+                   511111732211246
+                   ---------------
+                 0|...............|
+                 7|.......XXXXXXX.|
+              2  2|......XX.....XX|
+                 1|......X........|
+                 1|......X........|
+           5  1  5|.XXXXX.X.XXXXX.|
+        1  1  2  1|X......X.XX.X..|
+        1  1  1  1|X......X.X..X..|
+        1  1  2  2|X.X...XX..XX...|
+           2  4  1|XX.XXXX.......X|
+           1  1  1|X.....X.......X|
+              1  2|......X......XX|
+              2  2|......XX.....XX|
+              4  3|......XXXX..XXX|
+                 9|......XXXXXXXXX|
+                   ---------------
+
+
+EXPLANATION
+-----------
+read problem
+mark first surely full squares and empties in rows 1 6 15 and column 7 
+mark surely full squares and empties in columns 7 8 9 
+mark surely empty squares in columns 7 8 9 
+mark empty or full squares for block in rows 8 11 13 and columns 3 4 5 8 12 
+mark empty corner squares in rows 2 15 
+mark surely full squares and empties in rows 2 15 and columns 8 10 15 
+mark surely empty squares in columns 8 10 
+mark surely full squares and empties in row 14 and column 14 
+mark surely empty squares in rows 10 14 
+mark surely empty squares in rows 12 13 
+mark surely full squares and empties in column 1 
+mark surely empty squares in row 7 
+mark single empty or full squares in row 7 and column 7 
+mark surely full squares and empties in row 4 and column 1 
+mark surely empty squares in column 1 
+mark surely empty squares in rows 8 9 
+guess block 9 long is in row starting at row 15 and column 7 
+mark surely full squares and empties in row 15 and column 15 
+mark surely empty squares in columns 12 13 14 15 
+mark surely full squares and empties in row 12 
+guess block 7 long is in row starting at row 2 and column 8 
+mark surely full squares and empties in row 2 and columns 7 9 13 14 
+mark surely empty squares in columns 10 11 12 13 
+mark empty squares where no room in rows 9 10 and column 10 
+mark surely full squares and empties in rows 3 5 6 7 9 10 and columns 1 2 5 7 8 10 11 13 14 15 
+mark surely empty squares in column 6 
+mark surely full squares and empties in rows 6 8 and columns 6 8 10 
+mark surely empty squares in row 10 
+mark surely full squares and empties in rows 6 9 10 and columns 1 4 12 
+mark surely full squares and empties in rows 9 11 

@@ -1,0 +1,18 @@
+BAP ISSUES
+
+1. How to go from a program giving a general solution to a program
+solving one specific problem?
+
+A. Relationships between variables must be represented in the general
+solution in order to get the same relationships in the specific
+solution. For example, if row_numbers is a list of how many squares are to
+be filled in each row and row_count is the number of rows, the general
+solution will find the size of the row_numbers list to set row_count. The
+specific solution program will have row_count hard-coded, so row_count
+should not appear as a variable in the specific solution.
+
+B. The data for producing a specific solution program from a general
+solution program will be the problem and the general solution program.
+
+C. There will be no problem-reading step in the specific solution
+program, since the problem will be built into the program.

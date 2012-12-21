@@ -1,0 +1,123 @@
+echo ""
+echo "pro/gam0009_00.pro"
+bin/paint pro/gam0009_00.pro one no
+echo ""
+echo "pro/gam0009_01.pro"
+bin/paint pro/gam0009_01.pro one no
+echo ""
+echo "pro/gam0009_02.pro"
+bin/paint pro/gam0009_02.pro one no
+echo ""
+echo "pro/gam0009_03.pro"
+bin/paint pro/gam0009_03.pro one no
+echo ""
+echo "pro/gam0009_04.pro"
+bin/paint pro/gam0009_04.pro one no
+echo ""
+echo "pro/gam0009_05.pro"
+bin/paint pro/gam0009_05.pro one no
+echo ""
+echo "pro/gam0009_06.pro"
+bin/paint pro/gam0009_06.pro one no
+echo ""
+echo "pro/gam0009_07.pro"
+bin/paint pro/gam0009_07.pro one no
+echo ""
+echo "pro/gam0009_08.pro"
+bin/paint pro/gam0009_08.pro one no
+echo ""
+echo "pro/gam0009_09.pro"
+bin/paint pro/gam0009_09.pro one no
+echo ""
+echo "pro/gam0009_10.pro"
+bin/paint pro/gam0009_10.pro one no
+echo ""
+echo "pro/gam0009_11.pro"
+bin/paint pro/gam0009_11.pro one no
+echo ""
+echo "pro/gam0009_12.pro"
+bin/paint pro/gam0009_12.pro one no
+echo ""
+echo "pro/gam0009_13.pro"
+bin/paint pro/gam0009_13.pro one no
+echo ""
+echo "pro/gam0009_14.pro"
+bin/paint pro/gam0009_14.pro one no
+echo ""
+echo "pro/gam0009_15.pro"
+bin/paint pro/gam0009_15.pro one no
+echo ""
+echo "pro/gam0009_16.pro"
+bin/paint pro/gam0009_16.pro one no
+echo ""
+echo "pro/gam0009_17.pro"
+bin/paint pro/gam0009_17.pro one no
+echo ""
+echo "pro/gam0009_18.pro"
+bin/paint pro/gam0009_18.pro one no
+echo ""
+echo "pro/gam0009_19.pro"
+bin/paint pro/gam0009_19.pro one no
+echo ""
+echo "pro/gam0009_20.pro"
+bin/paint pro/gam0009_20.pro one no
+echo ""
+echo "pro/gam0109_1.pro"
+bin/paint pro/gam0109_1.pro one no
+echo ""
+echo "pro/gam0109_2.pro"
+bin/paint pro/gam0109_2.pro one no
+echo ""
+echo "pro/gam0109_3.pro"
+bin/paint pro/gam0109_3.pro one no
+echo ""
+echo "pro/gam0109_4.pro"
+bin/paint pro/gam0109_4.pro one no
+echo ""
+echo "pro/gam0110_1.pro"
+bin/paint pro/gam0110_1.pro one no
+echo ""
+echo "pro/gam0110_2.pro"
+bin/paint pro/gam0110_2.pro one no
+echo ""
+echo "pro/gam0110_3.pro"
+bin/paint pro/gam0110_3.pro one no
+echo ""
+echo "pro/gam0110_4.pro"
+bin/paint pro/gam0110_4.pro one no
+echo ""
+echo "pro/gam0110_5.pro"
+bin/paint pro/gam0110_5.pro one no
+echo ""
+echo "pro/gam0201_01.pro"
+bin/paint pro/gam0201_01.pro one no
+echo ""
+echo "pro/gam0201_02.pro"
+bin/paint pro/gam0201_02.pro one no
+echo ""
+echo "pro/gam0201_03.pro"
+bin/paint pro/gam0201_03.pro one no
+echo ""
+echo "pro/gam0201_04.pro"
+bin/paint pro/gam0201_04.pro one no
+echo ""
+echo "pro/gam0201_05.pro"
+bin/paint pro/gam0201_05.pro one no
+echo ""
+echo "pro/gam0201_06.pro"
+bin/paint pro/gam0201_06.pro one no
+echo ""
+echo "pro/gam0201_07.pro"
+bin/paint pro/gam0201_07.pro one no
+echo ""
+echo "pro/gam0201_08.pro"
+bin/paint pro/gam0201_08.pro one no
+echo ""
+echo "pro/gam0201_09.pro"
+bin/paint pro/gam0201_09.pro one no
+echo ""
+echo "pro/gam0201_10.pro"
+bin/paint pro/gam0201_10.pro one no
+echo ""
+echo "pro/gam0201_11.pro"
+bin/paint pro/gam0201_11.pro one no

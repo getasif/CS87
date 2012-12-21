@@ -1,0 +1,39 @@
+pro10_10/gam01052.ans
+
+  - - - - - - - - - -
+ |. . O . . . . . . .|1
+ |. . . . . . . ^ . .|1
+ |. . . . . . . + . .|1
+ |< + > . . . . v . ^|5
+ |. . . . O . . . . v|2
+ |. O . . . . < > . .|3
+ |. . . O . . . . . .|1
+ |. . . . . < + + > .|4
+ |. . . ^ . . . . . .|1
+ |. . . v . . . . . .|1
+  - - - - - - - - - -
+  1 2 2 3 1 1 2 5 1 2 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water rows 2 3 and column 5 
+fill blanks with ship in row 4 
+fill with water column 1 
+identify ship parts
+assign submarine to row 1 
+must be water in square at intersection of row 6 and column 9 
+must be water in square at intersection of row 9 and column 3 
+guess battleship is in row starting at row 8 and column 6 
+fill with water row 8 and columns 6 9 
+identify ship parts
+fill blanks with ship in row 5 
+fill with water column 10 
+identify ship parts
+fill blanks that must be ship in rows 6 7 9 and column 4 
+fill with water rows 7 9 10 and columns 2 4 
+identify ship parts
+fill blanks with ship in row 1 
+identify ship parts

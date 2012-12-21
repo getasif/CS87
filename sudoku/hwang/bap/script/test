@@ -1,0 +1,183 @@
+#!/bin/csh
+echo "pro/gam0105_1.pro"
+bin/bap pro/gam0105_1.pro one yes
+read whocares
+echo "pro/gam0105_2.pro"
+bin/bap pro/gam0105_2.pro one yes
+read whocares
+echo "pro/gam0105_3.pro"
+bin/bap pro/gam0105_3.pro one yes
+read whocares
+echo "pro/gam0107_1.pro"
+bin/bap pro/gam0107_1.pro one yes
+read whocares
+echo "pro/gam0107_2.pro"
+bin/bap pro/gam0107_2.pro one yes
+read whocares
+echo "pro/gam0107_3.pro"
+bin/bap pro/gam0107_3.pro one yes
+read whocares
+echo "pro/gam0107_4.pro"
+bin/bap pro/gam0107_4.pro one yes
+read whocares
+echo "pro/gam0107_5.pro"
+bin/bap pro/gam0107_5.pro one yes
+read whocares
+echo "pro/gam0107_6.pro"
+bin/bap pro/gam0107_6.pro one yes
+read whocares
+echo "pro/gam0108_1.pro"
+bin/bap pro/gam0108_1.pro one yes
+read whocares
+echo "pro/gam0108_2.pro"
+bin/bap pro/gam0108_2.pro one yes
+read whocares
+echo "pro/gam0108_3.pro"
+bin/bap pro/gam0108_3.pro one yes
+read whocares
+echo "pro/gam0108_4.pro"
+bin/bap pro/gam0108_4.pro one yes
+read whocares
+echo "pro/gam0108_5.pro"
+bin/bap pro/gam0108_5.pro one yes
+read whocares
+echo "pro/gam0108_6.pro"
+bin/bap pro/gam0108_6.pro one yes
+read whocares
+echo "pro/gam0109_1.pro"
+bin/bap pro/gam0109_1.pro one yes
+read whocares
+echo "pro/gam0109_2.pro"
+bin/bap pro/gam0109_2.pro one yes
+read whocares
+echo "pro/gam0109_3.pro"
+bin/bap pro/gam0109_3.pro one yes
+read whocares
+echo "pro/gam0109_4.pro"
+bin/bap pro/gam0109_4.pro one yes
+read whocares
+echo "pro/gam0109_5.pro"
+bin/bap pro/gam0109_5.pro one yes
+read whocares
+echo "pro/gam0109_6.pro"
+bin/bap pro/gam0109_6.pro one yes
+read whocares
+echo "pro/ftez1.pro"
+bin/bap pro/ftez1.pro one yes
+read whocares
+echo "pro/ftez2.pro"
+bin/bap pro/ftez2.pro one yes
+read whocares
+echo "pro/ftez3.pro"
+bin/bap pro/ftez3.pro one yes
+read whocares
+echo "pro/ftez4.pro"
+bin/bap pro/ftez4.pro one yes
+read whocares
+echo "pro/ftez5.pro"
+bin/bap pro/ftez5.pro one yes
+read whocares
+echo "pro/ftez6.pro"
+bin/bap pro/ftez6.pro one yes
+read whocares
+echo "pro/ftez7.pro"
+bin/bap pro/ftez7.pro one yes
+read whocares
+echo "pro/ftez8.pro"
+bin/bap pro/ftez8.pro one yes
+read whocares
+echo "pro/ftez9.pro"
+bin/bap pro/ftez9.pro one yes
+read whocares
+echo "pro/ftez10.pro"
+bin/bap pro/ftez10.pro one yes
+read whocares
+echo "pro/ftin1.pro"
+bin/bap pro/ftin1.pro one yes
+read whocares
+echo "pro/ftin2.pro"
+bin/bap pro/ftin2.pro one yes
+read whocares
+echo "pro/ftin3.pro"
+bin/bap pro/ftin3.pro one yes
+read whocares
+echo "pro/ftin4.pro"
+bin/bap pro/ftin4.pro one yes
+read whocares
+echo "pro/ftin5.pro"
+bin/bap pro/ftin5.pro one yes
+read whocares
+echo "pro/ftin6.pro"
+bin/bap pro/ftin6.pro one yes
+read whocares
+echo "pro/ftin7.pro"
+bin/bap pro/ftin7.pro one yes
+read whocares
+echo "pro/ftin8.pro"
+bin/bap pro/ftin8.pro one yes
+read whocares
+echo "pro/ftin9.pro"
+bin/bap pro/ftin9.pro one yes
+read whocares
+echo "pro/ftin10.pro"
+bin/bap pro/ftin10.pro one yes
+read whocares
+echo "pro/ftha1.pro"
+bin/bap pro/ftha1.pro one yes
+read whocares
+echo "pro/ftha2.pro"
+bin/bap pro/ftha2.pro one yes
+read whocares
+echo "pro/ftha3.pro"
+bin/bap pro/ftha3.pro one yes
+read whocares
+echo "pro/ftha4.pro"
+bin/bap pro/ftha4.pro one yes
+read whocares
+echo "pro/ftha5.pro"
+bin/bap pro/ftha5.pro one yes
+read whocares
+echo "pro/ftha6.pro"
+bin/bap pro/ftha6.pro one yes
+read whocares
+echo "pro/ftha7.pro"
+bin/bap pro/ftha7.pro one yes
+read whocares
+echo "pro/ftha8.pro"
+bin/bap pro/ftha8.pro one yes
+read whocares
+echo "pro/ftha9.pro"
+bin/bap pro/ftha9.pro one yes
+read whocares
+echo "pro/ftha10.pro"
+bin/bap pro/ftha10.pro one yes
+read whocares
+echo "pro/ftex1.pro"
+bin/bap pro/ftex1.pro one yes
+read whocares
+echo "pro/ftex2.pro"
+bin/bap pro/ftex2.pro one yes
+read whocares
+echo "pro/ftex3.pro"
+bin/bap pro/ftex3.pro one yes
+read whocares
+echo "pro/ftex4.pro"
+bin/bap pro/ftex4.pro one yes
+read whocares
+echo "pro/ftex5.pro"
+bin/bap pro/ftex5.pro one yes
+read whocares
+echo "pro/ftex6.pro"
+bin/bap pro/ftex6.pro one yes
+read whocares
+echo "pro/ftex7.pro"
+bin/bap pro/ftex7.pro one yes
+read whocares
+echo "pro/ftex8.pro"
+bin/bap pro/ftex8.pro one yes
+read whocares
+echo "pro/ftex9.pro"
+bin/bap pro/ftex9.pro one yes
+read whocares
+echo "pro/ftex10.pro"
+bin/bap pro/ftex10.pro one yes

@@ -1,0 +1,865 @@
+Programming Paint by Numbers
+T. Kramer
+
+Notation for this document
+--------------------------
+answer = a completed puzzle (not including any other information).
+blank = a blank square is unknown, marked with a space (' ').
+block = a set of adjacent filled squares in a strip.
+column = a column of the puzzle.
+empty = an empty square is known to be empty, marked with a dot ('.').
+full = a full square is known to be full, marked with an X ('X').
+explanation = a description of the process by which the answer was found.
+patch = an interval in a strip associated with a target; the patch
+        for the target covers all squares that might be in the block
+        for the target.
+row = a row of the puzzle.
+square = the smallest subdivision of a puzzle.
+strip = a row or column.
+target = one of the numbers indicating a desired block size.
+
+The document has two main sections: Key Decisions, and Rules. Both sections
+are numbered sequentially.  Each key decision has three parts: the problem,
+the decision, and considerations.
+
+Each numbered item is dated. The date is the date of the last revision.
+No history of revisions is being kept.
+
+Background
+----------
+
+1/14/2
+
+This type of puzzle is known by several names:
+1. Paint by Numbers (GAMES)
+2. Nonograms (Fujiwara)
+3. Griddlers (Dalgety)
+4. PictureLogic (Wolcott)
+
+GAMES Magazine has published Paint by Numbers puzzles since the early
+1990's.
+
+References
+----------
+
+1/14/2
+
+A. Hirofumi Fujiwara
+http://www.pro.or.jp/~fuji/java/puzzle/nonogram/index-eng.html
+Calls the puzzle "nonograms"
+includes
+(i) 19 puzzles that may be worked on-line. Largest size 4x4.
+(ii) an explanation of simple techniques for solving
+(iii) an explanation of how to work the controls for the on-line game
+
+B. James Dalgety
+http://www.puzzlemuseum.com/nonogram.htm
+Calls the puzzle "Griddlers"
+includes
+(i) Nonograms & Griddlers - a brief introduction to nonograms
+(ii) More on How to Solve - an explanation of simple techniques for solving
+(iii) A Griddler to Solve - sample puzzle
+(iv) Griddlers & Computers - brief discussion of solver programs
+(v) History of Grid Puzzles - summary of history of nonograms
+
+C. Keith Wolcott
+cfkdw@eiu.edu
+http://www.advant.com/users/Kwolcott/pictlogi.html
+This is a version for a Palm hand-held computer. Largest size 5x5.
+Calls the puzzle "PictureLogic".
+includes
+(i) an explanation of techniques (simple and intermediate) for solving
+(ii) an explanation of how to work the controls for the game on a palm pilot
+(iii) a lot of puzzles that may be downloaded
+(iv) links to other nonogram sites
+(v) other stuff
+
+D. Steven Simpson
+ss@comp.lancs.ac.uk
+http://www.comp.lancs.ac.uk/computing/users/ss/nonodoc/cover.htm
+
+Key Decisions
+-------------
+
+1. 8/8/1
+
+Problem: What programming language should be used.
+
+Decision: Decided to use C++.
+
+Considerations: C++ was used for the systems that solves battleships
+problems. Paint by numbers and battleships are similar enough that it
+should be possible to re-use much code from the battleships solver.
+So C++ is the obvious choice.
+
+6/7/2
+
+Decision: Converted the language to gen_gen_C.
+
+Considerations:
+
+A. This program is needed as input to gen_gen, which requires using
+the gen_gen_C language.
+
+B. The conversion took only a full day. I had some experience in how
+to convert from having converted the battleships solver.
+
+C. A fact not relevant to the decision, but worth noting is that
+it was not possible to re-use much code from the battleships
+solver in the nonogram (paint) solver.
+
+2. 8/8/1
+
+Problem: What representation should be used for stating problems?
+
+Decision: Use a file representation. Have the printed file
+(using a fixed width font) look like the typical paint by numbers
+puzzle. The following format looks OK for the puzzle itself.
+
+                  N           N
+                  N N   N N   N
+              N N N N N N N N N N
+              N N N N N N N N N N
+             --------------------
+     N  N  N|                    |
+        N  N|                    |
+  N  N  N  N|                    |
+        N  N|                    |
+        N  N|                    |
+        N  N|                    |
+        N  N|                    |
+     N  N  N|                    |
+     N  N  N|                    |
+        N  N|                    |
+             --------------------
+
+There may be any number of rows of numbers above the puzzle and any number
+of columns to the left. The rows and columns may have gaps in them as shown
+above. An upper limit of 99 will be placed on N so that at most two spaces
+are needed to write the number.
+
+In the rows, two-digit numbers will not have a space in front.
+In the columns, three spaces are allowed for each number, so all
+numbers will have space on both sides.
+
+Each square of the puzzle is represented by two horizontally adjacent
+characters.
+
+Considerations:
+
+A. Since it is essential to have problems, answers, and solutions
+persist, some type of file representation is clearly required.
+A puzzle graphic representation that will serve to show the puzzle
+itself for all three purposes is obviously simpler and better than
+separate representations for the three purposes.
+
+B. The battleships solver used a similar representation and it worked
+well. Since an attempt will be made to reuse battleships solver code,
+the paint by numbers representation should be similar to the battleships
+representation.
+
+D. The appearance of the puzzle will not be great in ASCII because the
+squares will not usually be square. The aspect ratio of a single character
+in the font used for development is about 2/3 (horizontal/vertical,
+counting the space between rows). Two characters per square gives a 4/3
+aspect ratio, which is closer to one, but still not very good. We will live
+with it. The puzzle could be enlarged so that each square is represented
+by a 3 by 2 rectangle of characters. This would make the aspect ratio
+very close to 1 (at least in the development font) and would also give
+the appearance of a more uniform grey. It would take up too much space to
+be useful for any but the smallest puzzles, however.
+
+10/19/1
+
+Decision:
+
+The output format is different from the input format. Columns are one
+space wide, not two. Column numbers larger than 9 are encoded by letters.
+a-z covers 10-35 and A-Z covers 36-61. No target larger than 61 has been
+found in any puzzle, yet.
+
+Considerations:
+
+This was done because large puzzles would not fit on the computer screen
+in the normal font when columns were two spaces wide.
+
+3. 8/8/1
+
+Problem: How are filled squares, empty squares, and unknown represented
+graphically?
+
+Decision:
+
+undecided grid squares =   (two blanks)
+
+empty grid squares  =  . (a blank followed by a period)
+
+filled grid square = XX
+
+Considerations:
+
+A. If a single character were used for a filled grid square, the completed
+puzzle would be full of blank space and not look at all good. The X
+character is used because it is fairly dense and lots of them together
+make a cross-hatch pattern, which is nice.
+
+B. The period is used by an empty grid square because it is very light.
+
+C. It would look better in the answer for the empty grid squares to be blank
+rather than a period. This might be implemented in printing the puzzle,
+but not in the puzzle statement or the internal representation.
+
+D. These usages are consistent with the usages in the battleships solver.
+It is desirable to keep them consistent. 
+
+10/19/1
+
+Note: In the input format, the representation of an undecided (blank)
+square given above is used. No empty or full squares have been found in any
+input puzzle. If they were, the representations given above would be used.
+
+Decision: In the output format, the following are used (there are no
+undecided squares in the output):
+
+empty grid square  =  . (a period)
+
+filled grid square = X
+
+Considerations:
+
+A. This is consistent with the earlier decision, given that the output
+format was changed to use one space per column.
+
+4. 8/8/1
+
+Problem: What representation should be used for stating the solution?
+
+Decision: Interleave graphics of partially worked puzzles with
+statements of the reasoning that leads from one step to the next.
+Also, when the complete solution is found, print the completed
+puzzle followed by the entire chain of reasoning. Make it easy to
+turn off the interleaving.
+
+Considerations:
+
+A. This method worked well for battleships.
+
+B. The chain of reasoning may be quite long for paint by numbers puzzles.
+The number of squares in the puzzle is almost certainly an adequate upper
+limit for the length of the chain, since each step in the chain decides how
+to mark one or more squares (unless search is needed and search
+reasoning is saved).
+
+5. 8/8/1
+
+Problem: What internal representation should be used for stating the
+problem statement, answer, partial answers, and partial solution?
+
+Decisions: 
+
+A. Use a 99 by 99 character array. A filled square is X, an unknown
+square is blank, and an empty square is a period. This is the same
+as the graphical representation except it uses only one character
+per square.
+
+Considerations:
+
+A. This method worked well for battleships and should work well for
+paint by numbers.
+
+6. 8/8/1
+
+Problem: Should search be implemented? If so, how?
+
+Decisions: Search will presumably be needed, since it seems to have
+been necessary from time to time to work puzzles by hand.
+
+Search should aim primarily to identify a square that must be empty by
+assuming it is filled, following the implications of that, and reaching
+a contradiction (to the puzzle statement).
+
+Considerations:
+
+A. Incorrect guesses lead to impossible conditions (contradictions). Random
+incorrect guesses may take a long time to lead to contradictions. If no
+constructive rule applies, guesses expected to be incorrect and to lead
+quickly to contradictions should be tried. Rules for selecting among
+possible guesses will need to be developed.
+
+A good procedure is to work at the edge of the puzzle near a corner where
+most of the squares are empty, and there is a configuration of the sort
+shown below. The target is the square in the upper right corner. Note that
+the number to the left of the 4 is smaller than 4, and the first few
+numbers in the column at the left are all 2 or more.
+
+
+             2 4
+   -------------
+ 3|             |
+ 2|             |
+ 3|             |
+ 1|             |
+
+Assume the square nearest the upper right corner is filled. Then the
+three squares below it must also be filled.
+
+             2 4
+   -------------
+ 3|            X|
+ 2|            X|
+ 3|            X|
+ 1|            X|
+
+Then, from the numbers in the left column, more squares must be filled
+
+             2 4
+   -------------
+ 3|      . X X X|
+ 2|        . X X|
+ 3|      . X X X|
+ 1|          . X|
+
+But now there is a row of three squares under the 2 in the top line,
+an impossible condition.
+
+10/19/1
+
+Decisions:
+
+A. Three types of search have been implemented.
+
+i.  The type shown above is used in try_corners; the corners are
+generalized so they may occur on the interior of the puzzle.
+
+ii. The second type looks along a (generalized) edge. See documentation of
+try_edges.
+
+iii. The third type looks at a single blank square located anywhere,
+temporarily marks it full (empty) and tests whether there is any way to
+complete the row and column in which the square lies. If there is no way to
+complete the row or no way to complete the column, the square is marked
+empty (full). See documentation of try_one.
+
+Considerations:
+
+A. All of these search methods rely on specific immediate consequences of a
+guess. No copy of the world is forked off when a guess is made. A copy is
+made of that small part of the world affected by the guess, and the world
+is restored from the copy after the test is finished.
+
+It is not clear whether this should be thought of as search (not that it
+matters).
+
+B. There are some puzzles whose solution can not be found using only the
+other implemented techniques but can be found when these three types of
+search are also implemented. No puzzle with a unique solution has been
+found that cannot be solved when these three search methods are
+implemented.
+
+1/15/2
+
+Decisions:
+
+A. Implement another level of search as follows: Modify try_one (the
+function implementing the testing of a single test square) so that while it
+runs, the function finds, for each test square and mark (full or empty),
+the total number of squares in the row and column that cross the test
+square that may be marked as a consequence of marking the test square. Save
+the location-markings tried (each is a triple [row, column, full_or_empty]
+[4, 7, 0], for example) on a list or array of triples arranged in
+decreasing order of number of consequently marked squares.
+
+If try_one fails to mark any square, using triples in the order found by
+try_one, for the first triple, fork off a copy of the puzzle, mark the
+square at that location, and construct the puzzle until (i) a contradiction
+is reached, (ii) the puzzle is complete, or (iii) no further construction
+is possible. If a contradiction is reached, the square in the original copy
+of the puzzle at that location may be marked the opposite way, and search
+mode is exited. If the puzzle is complete, either stop or look for multiple
+solutions by marking the same location the other way and trying to complete
+the puzzle. If no further construction is possible, go on to the next
+triple on the list. If the entire list is tried without finding a
+contradiction or completing the puzzle, the method fails.
+
+
+Considerations:
+
+A. The normal practice of GAMES magazine (as determined by solving all their
+puzzles for the past two years, not by editorial statement) is to not
+publish puzzles requiring search. The practice of James Dalgety and the
+Sunday Telegraph (UK) is the same, and it is a stated policy.
+
+Some puzzles in Hirofumi Fujiwara's web site require search.
+
+B. As noted earlier, random search is likely to use much more time than
+necessary. A good working hypothesis is that there will be some unmarked
+squares in the puzzle whose marking will lead to a contradiction.  This is
+not necessarily true, of course. Multiple guesses may, in principle (and
+maybe in fact), be necessary.
+
+C. Multiple levels of search may be implemented, but that will make the
+solving process become very slow very quickly. This should not be done
+unless there exist puzzles that cannot be solved without it.
+
+D. The procedure described above is depth-first and exhaustive as far as it
+goes. It may be implemented by data-driven programming (i.e., the function
+call tree is the search tree). If the procedure does not work well,
+breadth-first search might be implemented in which all locations are tried,
+and all (or the most promising) are worked on simultaneously.  But
+breadth-first cannot be implemented by data-driven programming and would
+require maintaining a stack.
+
+E. A-star search would be nice, but there is no apparent way to put a lower
+bound on the cost of any branch.
+
+6/7/2
+
+Decision:
+
+Search to contradiction was implemented one level deep.  A single copy of
+the world is forked off to support this. In this method, blank squares are
+tried in order (not by picking them by some criterion). A blank square of
+the forked off puzzle is marked full and an attempt is made to solve the
+forked puzzle. If this leads to an error condition, the square must be
+empty in the un-forked puzzle and is so marked. If not, the square is
+marked empty and an attempt is made to solve the forked puzzle. If this
+leads to an error condition, the square must be full in the un-forked
+puzzle and is so marked. As soon as one square is marked, the search
+stops. Search to contradiction is tried only after all else fails.
+
+Considerations:
+
+Six of Fujiwara's puzzles that could not be solved without search to
+contradiction are solved with it. Search to contradiction is slow. Four of
+the six puzzles that require it were solved in 1 to 2 minutes. One took
+only a couple seconds, and one took about 15 minutes. The time taken
+to solve a puzzle when search to contradiction is not needed is usually
+a fraction of a second.
+
+Decision:
+
+Implement depth first search by placing blocks.
+
+Considerations:
+
+A. There are still five of Fujiwara's puzzles that cannot be solved.
+
+B. Two types of search suggest themselves:
+
+i. Single square search, as already implemented, adding some criterion
+  for selecting the square to try (the one described earlier seems
+  appropriate).
+
+ii. Search by guessing at placing blocks. A good criterion for selecting
+  the block to try might be to select the largest unfinished block.
+
+C. Block search is more appealing.
+
+i. It will be more interesting to implement (since it is new).
+
+ii. Single square search has already proved to be slow. Block search
+  may be faster, since more squares get marked in each guess.
+  Block search will almost certainly be shallower for this reason.
+
+iii. Implementing the selection criterion should be easier for
+  block search than for single square search.
+
+iv. But, keeping track of what has been tried may be slightly harder for
+  block search.
+
+D. No method of bounding is evident, so A* and other branch-and-bound
+methods are not applicable.
+
+E. Depth first is easier to implement than breadth-first, as described
+earlier.
+
+6/20/2
+
+Decision:
+
+A. Drop the use of search to contradiction and keep only breadth-first
+search.
+
+Considerations:
+
+A. This was done since timing tests showed that using breadth-first search
+only was faster on every problem tried than using both search to
+contradiction and breadth-first search. See the file named "timing".
+
+7/15/2
+
+Decision:
+
+None yet.
+
+Considerations:
+
+A. A problem (alex_01.pro, from the UK) has been found that, using
+breadth-first search as currently implemented, requires search at least ten
+levels deep. The paint program crashed with a segmentation fault when
+trying to solve this problem. When the paint program is run in gdb for this
+problem, the segmentation fault occurs and screws up gdb as well.  Running
+the program in ObjectCenter has been tried; after two days it was still
+running, but no bug had been found. The paint_con program (the one that
+includes search for contradiction) was tried on this problem. It ran for
+about two hours without having to guess and completed about a third of the
+puzzle. Then it started having to guess. Two days later it was still
+guessing.
+
+B. It might be a good idea to be able to turn on search for contradiction
+if breadth-first search is observed to be taking a long time. This could be
+done by:
+
+i. having a flag in the world that indicates whether to use search for
+contradiction, and in solve_problem doing as the flag says.
+
+ii. maintaining in the world model of each solve_problem function a record
+of the number of cases tried in search by calls lower in the stack. This
+can be done at each level in try_guessing by adding the reported total for
+each guess.
+
+iii. Whenever the total thus far in any try_guessing call exceeds a threshold,
+the flag is turned on so that subsequent calls to solve_problem use search
+for contradiction.
+
+The top-level call to solve_problem would never get its flag turned on this
+way.
+
+C. Another possibility is to abort the search process if it ever gets
+too deep or too big, turn search for contradiction on at the top level, and
+start over again. This would be easier.
+
+D. Another possibility is to use a different criterion for goodness in
+choosing what patch to guess at. When search goes many levels deep, the
+number of possible choices for each guess becomes very important. If there
+were only two choices for each guess, at ten levels deep, only 2**10 =
+~1000 trials would be needed (at most), while if there were 4 choices, the
+number would be 4**10 = 2**20 = ~1,000,000.
+
+Thus, a better criterion for goodness might be to use the minimum number of
+choices, and if the number were the same for two patches, use the patch
+with the larger target. To get a good value for the number of choices, the
+actual number of fits would be found using the same methods as currently
+used (check that no empty squares are in the middle of a block or full
+squares at the ends).
+
+It will be instructive to modify the current version slightly to have
+it calculate and print the what the total number of choices would be if
+the number of choices at each level were the same as on the current path.
+The version proposed above would also (initially) be programmed to do
+that.
+
+
+7. 8/9/1 What data structures should be built to aid in solving the
+puzzle, in addition to the puzzle array itself?
+
+Decisions:
+
+A. Use strips, substrips, and patches. This is a rich set of data intended
+to allow working on targets or on strips. Rich is good, as seen in the bap
+program and elsewhere. Strips, substrips, and patches are all both
+graphical concepts and data structures. The two notions are not
+distinguished here (tsk tsk).
+
+As in bap, the world model will have rows and cols attributes, the
+value type of both being an array of strips.
+
+Each strip has an array (or list) of substrips. Each substrip has an array
+(or list of patches). The substrips cover the strip (and stick out one
+square on each end), and each substrip overlaps the next on one empty
+square.
+
+B. A substrip has one or more empty squares on each end.  A substrip fully
+contains one or more patches. Patches never cross substrip boundaries. As
+with bap, we pretend there are squares outside the boundaries of the
+puzzle. All squares outside the boundaries are considered to be empty. One
+substrip of each strip will have an end at index -1, and one will have an
+end at index length, where length is the number of squares in the strip.
+
+C. Each strip starts out with one substrip containing a patch for each
+target of the strip. As the puzzle gets filled in, the substrip is split
+whenever its patches become separated.
+
+D. Each patch starts out at its largest possible size and shrinks down to a
+block the size of the target for the patch. Since each patch is identified
+with a single target, the patches provide a way to work on targets. Patches
+may start out overlapping, but one never contains another.
+
+Considerations:
+
+Things that might be useful are:
+
+1. strip (column or row): targets, done (flag), squares (a 1D char array),
+   substrips (or patches)
+2. array of all strips (or array of all columns and array of all rows)
+3. patch: start, end, squares, target, index (maybe implicit), rights, lefts
+4. substrip: start, end, squares, targets, index (maybe implicit)
+
+The squares of a strip might be updated only when the strip is processed.
+To determine if a strip should be processed, the squares of the strip
+could be compared to the squares of the puzzle. If they differ, the
+strip should be processed. Alternatively, a strip could have a changes
+attribute instead of a squares attribute. When the strip was processed,
+the changes would be set to zero. When any square of the strip is changed
+in the course of processing some other strip, changes would be increased
+by one. The changes attribute might be better in a substrip.
+
+A substrip would be a container for information about a part of a strip
+known to contain the blocks for a subset of the targets for its strip.  A
+substrip would be split further whenever possible, but the start and end of
+the substrip would not change during the lifetime of the substrip.
+
+A patch is a container for information about the set of adjacent squares in
+which a target is known to lie.  The start would be the index of the square
+at the earliest possible beginning of the block for the target, and the end
+would be the index of the latest possible end. The start and end would be
+updated each time the patch was processed.  The rights and lefts of a patch
+would be indexes of the ends of adjacent patches that extend into the
+patch.
+
+Substrips have:
+advantages -- cover the puzzle,
+              are disjoint
+disadvantages -- go into and out of existence
+                 have multiple targets
+
+Patches have:
+advantages -- have fixed existence
+              have one target each
+disadvantages -- do not cover the puzzle
+                 overlap
+                 have moving ends
+
+10/19/1
+
+Decisions:
+
+A. The data for a strip includes number_substrips, substrips, and undone.
+
+B. The data for a substrip includes start, end, number_patches,
+   patches, and undone.
+
+C. The data for a patch is limited to start, end, target, and done.
+
+D. The world model data (not described in original write-up on 8/9/1)
+includes much more than the squares, rows, columns, number of rows,
+and number of columns.
+i. logic (array of explanation strings) and logic_line (size of logic)
+   handle the array of explanations of steps in solving the puzzle.
+ii. cols_in, rows_in, number_cols_in, and number_rows_in are used
+   to build the data on rows and columns on which progress have been
+   made. This data is used to build one line of explanation. The
+   data is re-initialized before trying each rule (since each line of
+   explanation corresponds to a single rule).
+iii. col_lines, cols_numbers, and row_numbers are used for printing
+   the puzzle. The two "_numbers" items are just arrays of numbers for
+   printing. The col_numbers array is compressed from two columns to
+   one as it is read, using the encoding mentioned earlier.
+iv. number_spaces is used for reading the puzzle.
+v. print_all is a flag indicating whether to print intermediate
+   steps in solving the puzzle.
+vi. progress_puzzle and progress_strip are flags indicating if progress
+   has been made. progress_puzzle is set to 0 before each rule is tried,
+   while progress_strip is set to 0 before each strip is tried (so
+   it changes much more frequently than progress_puzzle).
+vii. undone keeps track of the number of undone strips.
+viii. use_rows is a flag. 1 indicates that the first or only index refers
+   to rows. 0 indicates that the first or only index refers to columns.
+   This is used so that rows and columns can be treated as strips even
+   though the squares array always needs the row index given first.
+
+Considerations:
+
+A. In the data for a strip: targets and squares were not needed. undone
+replaced done. Index is passed as an argument when needed. Squares from the
+puzzle squares array are used when squares are needed.
+
+B. In the data for a substrip: squares and index were not needed. Patches
+replaced targets. Index is passed as an argument when needed. Squares from
+the puzzle squares array are used when squares are needed.
+
+C. In the data for a patch: squares, index, rights, and lefts were not
+needed. done was added simply to avoid repeatedly testing whether the
+interval from start to end is target. Index is passed as an argument
+when needed. Squares from the puzzle squares array are used when
+squares are needed.
+
+D. These data were all needed.
+
+10/30/1
+
+Decisions:
+
+A. Eliminate substrips. The source code for a version using substrips was
+saved (in paint_subs.hh, paint_subs.cc, paint_err_subs.hh, and
+paint_err_subs.cc), and substrips were eliminated (in paint.hh, paint.cc,
+paint_err.hh, and paint_err.cc).
+
+B. Move patch data and undone (patch) count from substrips into strips.
+Remove substrip data from strips.
+
+Considerations:
+
+A. It was observed (by temporarily turning off the subdivision of strips
+into more substrips) that substrips were not necessary. The system ran at
+about the same speed and got the same answers. The reason substrips were
+thought essential (to limit the number of targets considered in try_block
+and elsewhere) had been made invalid by limiting the number of targets
+considered another way (by determining which patches cover a particular
+square or block).
+
+The version without substrips is about 10% shorter and runs about 4%
+faster. The operation of the functions is much easier to understand
+without substrips.
+
+B. The patch and undone data were essential. The substrip data become
+nonsense when substrips were eliminated.
+
+
+8. How should it be decided what to try when? 8/9/1
+
+Considerations:
+
+Two primary alternatives are:
+
+(1) Keep an ordered list of strips (or patches) to work on next and
+update it continually. It might be pushed at one end and popped at the
+other (avoiding adding items already on the list) or items might be
+inserted in priority order. When a strip (or patch) comes up to be
+worked on, try everything that might apply.
+
+(2) Keep an ordered list (possibly hard-coded, as in bap) of things to
+try. Try the first thing on every strip (or patch). Then try the
+second thing on every strip (or patch), etc.
+
+Initialization would take place, of course. The strips or patches would
+be initialized.
+
+It may be useful to have a set of things to try at the beginning, before
+the steady-state is entered. In particular, all the squares would be filled
+that must always be filled because of the tightness of fit.
+
+10/19/1
+
+Decisions:
+
+A. The second alternative was implemented, but made more efficient by
+keeping track of whether each strip and substrip is done and only
+working on undone strips, and within an undone strip, only on undone
+substrips.
+
+Considerations:
+
+A. At the outset of implementation, information on changes was being kept,
+but it seemed to add too much overhead, so it was dropped. 
+
+
+RULES 8/9/1
+-----
+
+There are two types of rule: focus rules (for deciding what to try next)
+and square rules (for deciding how to fill squares). Some possibilities
+follow.
+
+1. A. (Focus Rule) - Look for a single unknown square between two blocks.
+   B. (Fill rule) - If filling the square would result in a block that is
+      too long, mark the square empty.
+
+2. A. (Focus Rule) - Look for an empty square on one end of a block that
+      has an unknown square on the other end.
+   B. (Fill Rule) - If the block can be identified with one or more
+      targets, all of which are bigger than the length of the block,
+      then the block may be extended with filled squares so its length
+      is the minimum of the lengths of the targets.
+
+3. (Focus Rule) - Work near the edges of the puzzle (because any time
+      a square is filled at the edge, a block starting at
+      that square may be completely filled perpendicular to the edge).
+
+4. (Focus Rule) - Work on the largest blocks (because these are the most
+      likely to be fillable). "Largest" might be in terms of percentage
+      of strip size, rather than block count, since that is the correct
+      measure of tightness of fit.
+
+5. (Focus Rule) - Work on strips (or substrips or patches) which have
+      had squares change since the last time they were worked on.
+
+10/19/1
+
+Decisions:
+
+A. None of the focus rules was implemented as a focus rule. Some of the
+rules were scrapped completely, while others were implemented as things
+to try.
+  1A and 1B were scrapped since what they could do is handled by
+      try_full_bounded.
+  2A was scrapped. 2B was implemented in try_block.
+  3 was not implemented since what it could do is handled by
+      try_full_bounded.
+  4 was not implemented in any way.
+  5 was not implemented, as discussed earlier.
+
+Considerations:
+
+A. Since the focus idea was not implemented, no focus rules were needed.
+
+
+FURTHER COMMENTS 10/19/1
+----------------
+
+Keeping track of what is done and dividing substrips when possible is
+useful (and necessary, since the implementation of some rules will not
+work if applied to a substrip that is done), but not central.
+
+The key items in solution are:
+
+1. The use of four data structures: squares, strips, substrips, and
+patches, where the last three are nested.
+
+2. The method of setting the bounds of patches, which is to simulate
+for each strip, covering the strip with two sets of blocks of the
+given size of the targets and in the given order, one set pushed as
+far left as possible and one set as far right as possible. The left
+set gives the starts of the patches, and the right set gives the ends.
+After initialization, the blocks in the left set only move right and
+the blocks in the right set only move left. Eventually, the two sets
+are in the same position.
+
+3. The looping process of resetting the bounds of patches and then applying
+rules. Grouping them as has been done (so that if an inexpensive one works,
+the more expensive ones are not tried, and the loop is started over again)
+is useful for efficiency but not central.
+
+4. The rules themselves.
+
+i. Mark squares full that are in the area of overlap of a block from the
+   left set and the same block from the right set.
+
+ii. Mark squares empty that are not inside a patch from either set.
+
+iii. Mark squares empty between two empty squares that are too close
+   together for any eligible block to fit between them.
+
+iv. If a partial block is a whole block, mark the squares at the ends
+   empty, and if a partial block is known to be longer and has an
+   empty square near one end, extend the other end.
+
+v. Try to show single squares along the edge of the puzzle must be
+   empty. (See explanation in paint.cc.)
+
+vi. Try to show squares in corners of the puzzle must be empty.
+   (See explanation above.)
+
+vii. Try to show individual squares anywhere cannot be full or cannot
+   be empty because no covering of one of the two strips in which the
+   square lies is possible if the square is so marked.
+
+10/30/1
+
+As noted above where data structures are discussed, substrips were
+eliminated, so the parenthetical comment in the first paragraph of these
+further comments (about substrips being necessary) is no longer true. Also,
+item 1 above should be:
+
+1. The use of three data structures: squares, strips, and patches, where
+the last two are nested.

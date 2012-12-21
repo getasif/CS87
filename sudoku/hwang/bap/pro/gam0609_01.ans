@@ -1,0 +1,355 @@
+
+  - - - - - - - - - -
+ |. ^ . ^ . . . . . .|2
+ |. v . + . . . . . .|2
+ |. . . + . . O . . .|2
+ |. . . v . . . . . O|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . . . ^ .|2
+ |. . . v . . . . v .|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 1 and column 2 
+all blanks must be water: fill all blanks with water in rows 1 2 and column 2 
+all blanks must be ship: fill all blanks with ship in row 4 and column 9 
+all blanks must be water: fill all blanks with water in rows 9 10 and column 10 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in row 3 
+identify ship parts:
+
+
+
+
+
+
+
+
+
+
+
+  - - - - - - - - - -
+ |. . . ^ . . O . . .|2
+ |. ^ . + . . . . . .|2
+ |. v . + . . . . . .|2
+ |. . . v . . . . . O|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . . . ^ .|2
+ |. . . v . . . . v .|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 2 and column 2 
+all blanks must be water: fill all blanks with water in rows 2 3 
+all blanks must be ship: fill all blanks with ship in row 4 
+all blanks must be water: fill all blanks with water in column 10 
+identify ship parts:
+place destroyers: ship parts and/or water in column 9 
+all blanks must be water: fill all blanks with water in rows 9 10 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in row 1 
+identify ship parts:
+
+
+
+
+
+
+
+
+
+
+
+  - - - - - - - - - -
+ |. . . ^ . . . . ^ .|2
+ |. . . + . . . . v .|2
+ |. ^ . + . . . . . .|2
+ |. v . v . . . . . .|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . O . . .|2
+ |. . . v . . . . . O|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 3 and column 2 
+all blanks must be water: fill all blanks with water in rows 3 4 and column 2 
+guess: destroyer is in column at row 1 and column 9 
+all blanks must be water: fill all blanks with water in rows 1 2 and column 9 
+assign submarine: to rows 9 10 
+guess: submarine is at row 9 and column 7 
+all blanks must be water: fill all blanks with water in row 9 
+all blanks must be ship: fill all blanks with ship in row 10 
+identify ship parts:
+
+
+
+
+
+
+
+
+
+
+
+  - - - - - - - - - -
+ |. . . ^ . . . . ^ .|2
+ |. . . + . . . . v .|2
+ |. ^ . + . . . . . .|2
+ |. v . v . . . . . .|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . . . . O|2
+ |. . . v . . O . . .|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 3 and column 2 
+all blanks must be water: fill all blanks with water in rows 3 4 and column 2 
+guess: destroyer is in column at row 1 and column 9 
+all blanks must be water: fill all blanks with water in rows 1 2 and column 9 
+assign submarine: to rows 9 10 
+guess: submarine is at row 9 and column 10 
+all blanks must be water: fill all blanks with water in row 9 
+all blanks must be ship: fill all blanks with ship in row 10 
+identify ship parts:
+
+
+
+
+
+
+
+
+
+
+
+  - - - - - - - - - -
+ |. . . ^ . . O . . .|2
+ |. . . + . . . . . O|2
+ |. ^ . + . . . . . .|2
+ |. v . v . . . . . .|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . . . ^ .|2
+ |. . . v . . . . v .|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 3 and column 2 
+all blanks must be water: fill all blanks with water in rows 3 4 and column 2 
+guess: destroyer is in column at row 9 and column 9 
+all blanks must be water: fill all blanks with water in rows 9 10 and column 9 
+assign submarine: to rows 1 2 
+guess: submarine is at row 1 and column 7 
+all blanks must be water: fill all blanks with water in row 1 
+all blanks must be ship: fill all blanks with ship in row 2 
+identify ship parts:
+
+
+
+
+
+
+
+
+
+
+
+  - - - - - - - - - -
+ |. . . ^ . . . . . O|2
+ |. . . + . . O . . .|2
+ |. ^ . + . . . . . .|2
+ |. v . v . . . . . .|2
+ |. . . . . < + > . .|3
+ |^ . . . . . . . . O|2
+ |+ . O . . . . . . .|2
+ |v . . . . . . . . .|1
+ |. . . ^ . . . . ^ .|2
+ |. . . v . . . . v .|2
+  - - - - - - - - - -
+  3 2 1 6 0 1 2 1 2 2 
+
+EXPLANATION
+-----------
+read problem
+pad given ship parts with water:
+all blanks must be water: fill all blanks with water in columns 3 5 
+all blanks but one must be ship: fill some blanks in column 4 
+identify ship parts:
+assign battleship: to column 4 
+place battleships: mark ship parts and/or water in column 4 
+identify ship parts:
+assign cruisers: to row 5 and column 1 
+place cruisers: mark ship parts and/or water in row 5 
+all blanks must be water: fill all blanks with water in column 8 
+identify ship parts:
+all blanks must be ship: fill all blanks with ship in column 4 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 6 
+place cruisers: mark ship parts and/or water in column 1 
+all blanks must be water: fill all blanks with water in rows 7 8 
+identify ship parts:
+guess: cruiser is in row at row 5 and column 6 
+all blanks must be water: fill all blanks with water in row 5 and column 6 
+all blanks must be ship: fill all blanks with ship in row 6 
+identify ship parts:
+assign destroyers: to columns 2 9 
+place destroyers: ship parts and/or water in column 2 
+assign submarine: to columns 7 10 
+guess: destroyer is in column at row 3 and column 2 
+all blanks must be water: fill all blanks with water in rows 3 4 and column 2 
+guess: destroyer is in column at row 9 and column 9 
+all blanks must be water: fill all blanks with water in rows 9 10 and column 9 
+assign submarine: to rows 1 2 
+guess: submarine is at row 1 and column 10 
+all blanks must be water: fill all blanks with water in row 1 
+all blanks must be ship: fill all blanks with ship in row 2 
+identify ship parts:

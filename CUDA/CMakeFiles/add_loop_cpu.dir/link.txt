@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   CMakeFiles/add_loop_cpu.dir/add_loop_cpu.cpp.o  -o add_loop_cpu -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib 

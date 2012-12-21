@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   ./simple_device_call_generated_simple_device_call.cu.o  -o simple_device_call -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib /usr/local/lib/libcudart.so -lcuda libbook.a libtimers.a /usr/local/lib/libcudart.so -lcuda -Wl,-rpath,/usr/local/src/NVIDIA_CUDA_SDK/lib:/usr/local/lib 

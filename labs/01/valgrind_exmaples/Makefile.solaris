@@ -1,0 +1,37 @@
+#
+# make: regular build
+# make pure: build a purified version of the binary
+#
+
+MAIN=badprog
+
+# CC = gcc
+
+PURIFY=purify -cache-dir=/opt/rw/purify_cache
+
+CFLAGS= -Wall -g
+
+LFLAGS=
+LIBS=
+INCLUDES=
+
+SRCS = main.c
+
+OBJS = $(SRCS:.c=.o)
+
+$(MAIN):  $(OBJS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+pure: $(OBJS)
+	$(PURIFY) $(CC) $(CFLAGS) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.C.o:
+	$(CC) $(CLFAGS) $(INCLUDEES) -c $<
+
+depend: $(SRCS)
+	makedepend $(INCLUDES) $^
+
+clean:
+	 rm -f *.o *~ $(MAIN) *.tsf *.fdc *.tio *.tqf *.tdf *.tpf
+
+# DO NOT DELETE THIS LINE -- make depend needs it

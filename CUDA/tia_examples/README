@@ -1,0 +1,13 @@
+This directory contains a library for animating CUDA applications on
+the GPU using openGL, as the CUDA application runs
+
+Directions for how to use the library are in comments in myopengllib.h.
+
+simple.cu contains an example of how to use the library.
+
+ To compile: make
+
+ To run: ./simple
+ To stop: CNTL^C
+
+(newhall, 2012)

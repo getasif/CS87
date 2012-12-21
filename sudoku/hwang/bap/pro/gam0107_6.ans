@@ -1,0 +1,167 @@
+pro10_10/gam01076.ans
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_col: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_col: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+assign_cruisers: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_col: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_col: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_col: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+allocate_ship_col: Puzzle has no answer too many destroyers
+locate_ships
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+try_full_but_one_row: Puzzle has no answer
+try_full_but_one
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+verify_squares: Puzzle has no answer
+solve_bap
+
+  - - - - - - - - - -
+ |. . . . . . . . ^ .|1
+ |. . . . . . . . v .|1
+ |. . . . . . O . . .|1
+ |. . . . . . . . . ^|1
+ |. . . . . . . O . +|2
+ |. . . O . . . . . +|2
+ |. . . . . . . ^ . v|2
+ |. . . . < > . v . .|3
+ |< + > . . . . . . .|3
+ |. . . . < + > . O .|4
+  - - - - - - - - - -
+  1 1 1 1 2 2 2 3 3 4 
+
+EXPLANATION
+-----------
+read problem
+guess battleship is in column starting at row 4 and column 10 
+fill with water row 4 and column 10 
+must be water in square at intersection of row 1 and column 8 
+must be water in square at intersection of row 2 and column 8 
+guess cruiser is in row starting at row 9 and column 1 
+fill with water row 9 and columns 1 2 3 
+fill blanks with ship in rows 8 10 and column 9 
+fill with water rows 1 2 and columns 5 6 
+identify ship parts
+fill blanks with ship in row 7 
+identify ship parts
+fill blanks with ship in row 6 and column 8 
+fill with water row 5 and column 4 
+identify ship parts
+fill blanks with ship in row 3 
+identify ship parts

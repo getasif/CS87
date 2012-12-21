@@ -1,0 +1,100 @@
+
+                                                             1111
+                              1 111                        113333
+                              31322            11     1    121111
+                              13131b   3 18  1133111 424   3166328
+                         456a6111114   5111  3311321 121 1187231112
+                         111551121136  41112 31121131213454332111118
+                         2341255453295513217811311114123599342445861
+                         a98774542112ca11111124113113349e43111223567
+                         21111211112111121111111111112554543333333327
+                         777777777777775111113741178ee666531111111112e
+                         ---------------------------------------------
+     8  1  1  1  2  1  1|...XXXXXXXX......X.X........X.XX........X.X..|
+        2  1  1 10 11  1|...XX.....X......X.XXXXXXXXXX.XXXXXXXXXXX.X..|
+    13  1  1  1  2  1  1|.XXXXXXXXXXXXX...X.X........X.XX........X.X..|
+    15  1  1  1  2  1  1|XXXXXXXXXXXXXXX..X.X........X.XX........X.X..|
+        8  5  1  1  1  1|XXXXXXXX..XXXXX..X.X....................X.X..|
+     5  5  1  8  3  7  1|XXXXX.....XXXXX..X.XXXXXXXX...XXX.XXXXXXX.X..|
+     4  2  6  9  3  3  8|XXXX.XX.XXXXXX...XXXXXXXXX.XXX.XXX.XXXXXXXX..|
+     2  1  2  8  2  5  7|..XX....X.XX.....XXXXXXXX.XX..XXXXX.XXXXXXX..|
+              1  2  1  9|...X...XX.X...............XXXXXXXXX..........|
+                 1  1 14|...X......X.............XXXXXXXXXXXXXX.......|
+           1  2  1  3  3|....X..XX.X..........XXX..............XXX....|
+                 6  1 14|XXXXXX...X..............XXXXXXXXXXXXXX.......|
+           2  3  1  1  9|...XX.XXX.X................X.XXXXXXXXX.......|
+        4  1  2  5  1  9|.XXXX..X..XX..XXXXX........X..XXXXXXXXX......|
+        6  3  1  1  2  9|XXXXXX...XXX..X...X.........XX.XXXXXXXXX.....|
+  4  1  1  3  1  1  1  9|XXXX..X.X.XXX.X...X.........X..XXXXXXXXX.....|
+     1  4  2  3  1 10  1|..X..XXXX..XX.XXX.X.........XXXXXXXXXX..X....|
+        1  7  4  2  7  1|X..XXXXXXX.XXXX..XX..........XXXXXXX.....X...|
+     2 10  1  1  5  2  1|XX..XXXXXXXXXX..X.X...........XXXXX....XX.X..|
+     3  9  1  4  1  2  1|XXX..XXXXXXXXX....X...........XXXX...X..XX.X.|
+     6  4  1  4  2  7  1|XXXXXX....XXXX...X..XXXX......XX...XXXXXXX.X.|
+  5  6  1  2  4  4  2  1|XXXXX......XXXXXX...X..XX....XXXX.XXXX..XX.X.|
+  5  1  5  1  1  8  3  1|XXXXX.X.....XXXXX...X...X...XXXXXXXX...XXX.X.|
+  8  1  4  1  1  9  5  1|XXXXXXXX..X.XXXX.....X..X.XXXXXXXXX..XXXXX.X.|
+     8  1  3  3  5  3  1|XXXXXXXX..X.XXX......XXX.....XXXXX.....XXX.X.|
+           9  3  2  5  2|XXXXXXXXX..XXX.......XX.............XXXXX.XX.|
+             29  5  2  1|XXXXXXXXXXXXXXXXXXXXXXXXXXXXX......XXXXX.XX.X|
+        4  1  2  2  3  1|...........................XXXX.X.XX.XX.XXX.X|
+  1  1  1  1  1 12  3  1|X....X....X....X....X......XXXXXXXXXXXX.XXX.X|
+             26 10  4  1|XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXX..XXXX.X|
+                 7  6  1|...........................XXXXXXX...XXXXXX.X|
+                   16  1|...........................XXXXXXXXXXXXXXXX.X|
+                    3  1|..........................XXX...............X|
+                24  4  1|XXXXXXXXXXXXXXXXXXXXXXXX.XXXX...............X|
+             14  1  7  1|XXXXXXXXXXXXXX.......X...XXXXXXX............X|
+             15  1 18  1|XXXXXXXXXXXXXXX......X...XXXXXXXXXXXXXXXXXX.X|
+             15  2 18  1|XXXXXXXXXXXXXXX......XX..XXXXXXXXXXXXXXXXXX.X|
+             15  3 17  1|XXXXXXXXXXXXXXX.....XXX..XXXXXXXXXXXXXXXXX..X|
+             15  3  8  2|XXXXXXXXXXXXXXX.....XXX..XXXXXXXX..........XX|
+             15  3  8 11|XXXXXXXXXXXXXXX.....XXX..XXXXXXXX.XXXXXXXXXXX|
+                         ---------------------------------------------
+
+
+EXPLANATION
+-----------
+read problem
+mark first surely full squares and empties in rows 7 24 27 30 34 36 37 38 39 40 and columns 1 4 11 29 31 32 33 41 
+mark surely full squares and empties in rows 5 6 8 20 24 25 26 34 35 36 and columns 6 7 8 9 10 11 12 13 14 20 22 26 27 28 29 30 34 37 
+mark surely empty squares in rows 10 16 20 and columns 6 7 8 9 10 11 12 13 14 15 20 26 27 28 34 35 36 37 38 39 40 
+mark empty squares where no room in row 32 and columns 13 14 
+mark surely full squares and empties in rows 2 3 4 19 20 24 25 26 29 30 32 34 35 36 37 38 39 40 and columns 1 2 3 4 5 11 12 13 14 15 22 30 31 32 33 34 35 36 37 38 41 44 45 
+mark surely empty squares in rows 4 30 31 33 34 35 and columns 2 3 4 5 9 10 12 13 14 15 22 23 24 26 32 33 34 35 36 37 38 41 42 43 44 
+mark empty squares where no room in rows 8 26 28 31 
+mark surely full squares and empties in rows 1 2 3 4 6 7 8 10 14 15 19 21 23 24 25 26 27 29 31 33 34 35 39 and columns 1 2 3 4 5 6 9 10 11 12 14 16 21 22 23 30 31 32 33 34 35 36 37 38 41 42 43 
+mark surely empty squares in rows 6 7 14 19 20 21 22 27 28 29 30 36 37 38 39 and columns 3 5 6 7 8 9 10 12 16 21 22 23 28 30 31 33 34 35 36 38 41 42 
+mark empty squares where no room in rows 27 28 and column 9 
+mark surely full squares and empties in rows 1 2 5 6 7 8 12 13 14 15 16 18 19 20 21 23 25 27 28 36 37 38 40 and columns 2 4 7 8 9 10 22 23 32 34 36 37 39 40 43 
+mark surely empty squares in rows 1 2 3 5 6 8 9 14 15 16 18 20 21 22 25 26 29 36 37 39 40 and columns 1 2 3 6 7 9 10 11 15 22 23 25 26 29 34 35 36 37 38 39 40 
+mark empty squares where no room in rows 9 15 26 and column 44 
+mark surely full squares and empties in rows 2 3 7 9 10 13 14 15 17 18 21 22 23 24 25 26 29 30 and columns 1 2 8 15 16 18 21 30 31 32 33 34 39 40 41 42 43 44 
+mark surely empty squares in rows 9 13 14 17 18 23 24 and columns 11 12 15 16 25 27 29 39 40 41 42 43 
+mark empty squares where no room in columns 17 20 
+mark surely full squares and empties in rows 1 2 6 7 8 10 12 13 17 22 23 25 29 39 40 and columns 2 3 5 9 11 18 20 21 31 33 36 37 
+mark surely empty squares in rows 1 2 3 4 5 6 7 8 10 13 15 16 17 20 21 22 23 25 and columns 17 19 27 36 37 38 42 
+mark empty squares where no room in column 34 
+mark surely full squares and empties in rows 2 5 6 9 13 15 16 and columns 5 7 24 25 26 28 29 30 34 35 
+mark surely empty squares in rows 11 13 19 and columns 25 26 28 30 39 40 
+mark empty squares where no room in row 11 
+mark surely full squares and empties in rows 1 3 4 7 10 12 14 17 19 and columns 1 10 12 15 43 
+mark surely empty squares in rows 8 9 10 13 19 20 24 and columns 29 39 40 
+mark surely full squares and empties in rows 8 12 14 17 and columns 16 19 27 30 36 
+mark surely empty squares in rows 12 17 22 and columns 19 27 29 
+mark empty squares where no room in columns 19 21 
+mark surely full squares and empties in rows 9 15 and columns 19 29 36 
+mark surely empty squares in rows 10 11 12 17 and column 21 
+mark empty squares where no room in columns 21 28 
+mark surely full squares and empties in rows 11 16 18 and column 41 
+mark surely empty squares in rows 10 18 and columns 17 18 24 
+mark empty squares where no room in rows 10 12 
+mark surely full squares and empties in rows 10 12 17 and columns 37 38 
+mark surely full squares and empties in rows 11 18 and columns 40 41 42 
+mark surely full squares and empties in rows 10 11 12 and columns 26 27 28 39 
+mark surely full squares and empties in rows 10 11 12 13 14 21 22 and columns 18 19 23 
+mark surely empty squares in columns 22 24 25 
+mark surely full squares and empties in rows 11 20 22 23 and columns 17 22 
+mark surely empty squares in row 24 and columns 21 25 
+mark surely full squares and empties in row 25 and columns 21 24 
+mark surely full squares and empties in rows 21 24 

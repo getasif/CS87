@@ -1,0 +1,37 @@
+  - - - - - - - - - -
+ |. . . ^ . . . O . .|2
+ |. . . + . . . . . .|1
+ |. . . + . . . O . .|2
+ |. . . v . . . . . .|1
+ |< > . . . < > . < >|6
+ |. . . ^ . . . . . .|1
+ |. . . + . . . O . .|2
+ |. . . v . . . . . .|1
+ |. . . . . . . O . .|1
+ |. . < + > . . . . .|3
+  - - - - - - - - - -
+  1 1 1 8 1 1 1 4 1 1 
+
+EXPLANATION
+-----------
+read problem
+blank cannot be ship: fill blank with water at crossing of row 2 and column 3 
+blank cannot be ship: fill blank with water at crossing of row 2 and column 5 
+blank cannot be ship: fill blank with water at crossing of row 4 and column 3 
+blank cannot be ship: fill blank with water at crossing of row 4 and column 5 
+blank cannot be ship: fill blank with water at crossing of row 6 and column 3 
+blank cannot be ship: fill blank with water at crossing of row 6 and column 5 
+blank cannot be ship: fill blank with water at crossing of row 8 and column 3 
+blank cannot be ship: fill blank with water at crossing of row 8 and column 5 
+blank cannot be ship: fill blank with water at crossing of row 9 and column 3 
+blank cannot be ship: fill blank with water at crossing of row 9 and column 5 
+all blanks but two must be ship: fill some blanks in column 4 
+all blanks must be water: fill all blanks with water in row 8 
+guess: battleship is in column at row 1 and column 4 
+all blanks must be water: fill all blanks with water in rows 2 4 
+all blanks must be ship: fill all blanks with ship in columns 3 4 5 
+all blanks must be water: fill all blanks with water in rows 6 10 
+identify ship parts:
+all blanks but one must be ship: fill some blanks in row 5 and column 8 
+all blanks must be water: fill all blanks with water in rows 1 3 5 7 9 
+identify ship parts:

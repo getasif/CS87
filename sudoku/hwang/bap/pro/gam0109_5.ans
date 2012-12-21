@@ -1,0 +1,49 @@
+pro10_10/gam01095.ans
+
+  - - - - - - - - - -
+ |. < + > . . . . . .|3
+ |. . . . . . . . ^ .|1
+ |. . . . O . . . + .|2
+ |. . O . . . ^ . v .|3
+ |. . . . O . + . . .|2
+ |. < > . . . + . . .|3
+ |. . . . . . v . . .|1
+ |. . . . . . . . . .|0
+ |^ . . O . . . . . .|2
+ |v . . . . . . < > .|3
+  - - - - - - - - - -
+  2 2 3 2 2 0 4 1 4 0 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water rows 6 8 and columns 6 10 
+extend in column middle at row 3 and column 9 
+fill with water row 2 
+extend in column middle at row 6 and column 7 
+fill with water row 7 
+identify ship parts
+must be water in square at intersection of row 3 and column 2 
+must be water in square at intersection of row 3 and column 4 
+must be water in square at intersection of row 9 and column 7 
+must be water in square at intersection of row 9 and column 8 
+fill blanks with ship in column 8 
+must be water in square at intersection of row 10 and column 2 
+guess battleship is in column starting at row 4 and column 7 
+fill with water column 7 
+identify ship parts
+fill blanks with ship in rows 5 10 and column 4 
+identify ship parts
+fill blanks with ship in row 9 
+fill with water column 1 
+identify ship parts
+fill blanks that must be ship in row 1 and column 2 
+fill with water row 1 and column 2 
+identify ship parts
+fill blanks that must be ship in column 5 
+fill with water row 3 and column 5 
+identify ship parts
+fill blanks with ship in row 4 
+identify ship parts

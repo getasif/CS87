@@ -1,0 +1,41 @@
+pro10_10/gam01093.ans
+
+  - - - - - - - - - -
+ |. < + > . . . . . ^|4
+ |. . . . . . . . . +|1
+ |. . . . . < > . . +|3
+ |. . O . . . . . . v|2
+ |. . . . . . . . . .|0
+ |. . . . . . . ^ . .|1
+ |. . . . . O . + . .|2
+ |^ . . . . . . v . .|2
+ |v . . ^ . . . . . O|3
+ |. . . v . . O . . .|2
+  - - - - - - - - - -
+  2 1 2 3 0 2 2 3 0 5 
+
+EXPLANATION
+-----------
+read problem
+extend ship ends
+pad given ship parts with water
+fill with water rows 5 10 and columns 1 5 9 
+extend in column middle at row 3 and column 10 
+fill with water row 2 
+identify ship parts
+fill blanks with ship in row 9 
+assign battleship to column 10 
+place battleship parts and/or water in column 10 
+identify ship parts
+assign cruiser to row 1 and column 8 
+place cruiser parts and/or water in column 8 
+fill with water rows 6 8 
+identify ship parts
+place cruiser parts and/or water in row 1 
+fill with water columns 2 4 
+identify ship parts
+fill blanks that must be ship in rows 3 4 7 
+fill with water rows 4 7 and column 3 
+identify ship parts
+fill blanks with ship in row 3 
+identify ship parts

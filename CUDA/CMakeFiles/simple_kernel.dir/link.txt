@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   ./simple_kernel_generated_simple_kernel.cu.o  -o simple_kernel -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib /usr/local/lib/libcudart.so -lcuda libbook.a libtimers.a /usr/local/lib/libcudart.so -lcuda -Wl,-rpath,/usr/local/src/NVIDIA_CUDA_SDK/lib:/usr/local/lib 

@@ -1,0 +1,72 @@
+-------------------
+|7 8 2|6 1 3|5 4 9|
+|5 4 6|7 9 8|2 1 3|
+|1 3 9|4 2 5|6 8 7|
+-------------------
+|4 9 7|1 5 2|8 3 6|
+|6 5 3|8 4 7|9 2 1|
+|2 1 8|9 3 6|7 5 4|
+-------------------
+|3 6 4|2 8 9|1 7 5|
+|8 7 1|5 6 4|3 9 2|
+|9 2 5|3 7 1|4 6 8|
+-------------------
+
+EXPLANATION
+-----------
+read problem
+Put 5 at row 2 and column 1. It's the only digit that fits.
+Put 8 at row 1 and column 2. It's the only digit that fits.
+Put 3 at row 3 and column 2. It's the only digit that fits.
+Put 9 at row 3 and column 3. It's the only digit that fits.
+Put 5 at row 9 and column 3. It's the only digit that fits.
+Put 1 at row 9 and column 6. It's the only digit that fits.
+Put 8 at row 2 and column 6. It's the only digit that fits.
+Put 2 at row 3 and column 5. It fits nowhere else in that row.
+Put 7 at row 9 and column 5. It's the only digit that fits.
+Put 2 at row 7 and column 4. It's the only digit that fits.
+Put 5 at row 8 and column 4. It's the only digit that fits.
+Put 4 at row 8 and column 6. It's the only digit that fits.
+Put 6 at row 6 and column 6. It's the only digit that fits.
+Put 5 at row 3 and column 6. It's the only digit that fits.
+Put 1 at row 1 and column 5. It's the only digit that fits.
+Put 6 at row 1 and column 4. It's the only digit that fits.
+Put 4 at row 1 and column 8. It's the only digit that fits.
+Put 9 at row 1 and column 9. It's the only digit that fits.
+Put 5 at row 1 and column 7. It's the only digit that fits.
+Put 7 at row 2 and column 4. It's the only digit that fits.
+Put 1 at row 2 and column 8. It's the only digit that fits.
+Put 1 at row 4 and column 4. It's the only digit that fits.
+Put 8 at row 7 and column 5. It's the only digit that fits.
+Put 5 at row 4 and column 5. It fits nowhere else in that row.
+Put 5 at row 5 and column 2. It fits nowhere else in that row.
+Put 9 at row 5 and column 7. It fits nowhere else in that row.
+Put 1 at row 5 and column 9. It fits nowhere else in that row.
+Put 1 at row 6 and column 2. It fits nowhere else in that row.
+Put 8 at row 6 and column 3. It fits nowhere else in that row.
+Put 1 at row 7 and column 7. It fits nowhere else in that row.
+Put 9 at row 9 and column 1. It fits nowhere else in that row.
+In row 5, only digits 3 and 4 fit in columns 3 and 5.
+  Remove those digits from the choices in columns 1 8.
+Put 3 at row 4 and column 8. It fits nowhere else in that column.
+Put 8 at row 4 and column 7. It fits nowhere else in that row.
+Put 6 at row 3 and column 7. It's the only digit that fits.
+Put 7 at row 3 and column 9. It's the only digit that fits.
+Put 8 at row 3 and column 8. It's the only digit that fits.
+Put 2 at row 8 and column 9. It's the only digit that fits.
+Put 4 at row 6 and column 9. It's the only digit that fits.
+Put 6 at row 4 and column 9. It's the only digit that fits.
+Put 4 at row 4 and column 1. It's the only digit that fits.
+Put 3 at row 5 and column 3. It's the only digit that fits.
+Put 4 at row 5 and column 5. It's the only digit that fits.
+Put 2 at row 5 and column 8. It's the only digit that fits.
+Put 6 at row 5 and column 1. It's the only digit that fits.
+Put 2 at row 6 and column 1. It's the only digit that fits.
+Put 3 at row 6 and column 5. It's the only digit that fits.
+Put 3 at row 7 and column 1. It's the only digit that fits.
+Put 4 at row 7 and column 3. It's the only digit that fits.
+Put 7 at row 8 and column 2. It's the only digit that fits.
+Put 6 at row 7 and column 2. It's the only digit that fits.
+Put 7 at row 7 and column 8. It's the only digit that fits.
+Put 2 at row 9 and column 2. It's the only digit that fits.
+Put 6 at row 9 and column 8. It's the only digit that fits.

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall   ./enum_gpu_generated_enum_gpu.cu.o  -o enum_gpu -rdynamic -L/usr/local/src/NVIDIA_CUDA_SDK/lib /usr/local/lib/libcudart.so -lcuda libbook.a libtimers.a /usr/local/lib/libcudart.so -lcuda -Wl,-rpath,/usr/local/src/NVIDIA_CUDA_SDK/lib:/usr/local/lib 

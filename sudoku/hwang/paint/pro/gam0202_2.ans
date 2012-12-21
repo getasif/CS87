@@ -1,0 +1,45 @@
+                                   111
+                                  1111
+                              22111222
+                       111112211218221611
+                      f1111813117211116313
+                      --------------------
+                 7  8|XXXXXXX..XXXXXXXX...|
+              1  4  1|X.....XXXX......X...|
+           1  2  2  1|X......XX....XX.X...|
+           1  2  2  2|X..........XX..XX.XX|
+        1  1  2  2  1|X.........X..XX.XX.X|
+        1  2  3  1  1|X........XX.XXX.X..X|
+        1  1  1  1  1|X.......X...X..X..X.|
+  1  1  1  1  2  1  1|X....X.X..X.XX.X.X..|
+        1  3  2  2  1|X....XXX.XX.XX...X..|
+  1  1  2  1  1  1  2|X....X.XX.X.X.X.XX..|
+     1  1  1  1  1  1|X....X....X.X.X.X...|
+        1  1  1  1  2|X....X....X.X..XX...|
+        1  1  1  1  1|X....X....X.X...X...|
+           1  1  2  1|X....X....XX....X...|
+                 6  6|XXXXXX.....XXXXXX...|
+                      --------------------
+
+
+EXPLANATION
+-----------
+read problem
+mark first surely full squares and empties in row 1 and columns 1 6 11 13 17 
+mark surely full squares and empties in rows 1 9 15 and columns 2 3 4 5 6 7 
+mark surely empty squares in rows 1 9 15 and columns 7 13 14 15 16 
+mark surely full squares and empties in rows 2 9 and columns 7 8 
+mark surely empty squares in rows 2 12 and column 8 
+mark surely full squares and empties in rows 3 6 and column 15 
+mark surely empty squares in rows 3 6 and columns 9 10 
+mark empty squares where no room in rows 14 15 
+mark surely full squares and empties in rows 1 10 11 15 and columns 8 10 14 16 17 
+mark surely empty squares in columns 14 15 16 17 
+mark surely full squares and empties in rows 1 2 4 8 and column 20 
+mark surely empty squares in rows 3 4 8 and columns 11 12 16 19 20 
+mark surely full squares and empties in rows 5 15 and columns 11 14 15 17 18 20 
+mark empty squares where no room in row 15 
+mark surely full squares and empties in rows 3 8 9 12 14 15 and columns 12 13 16 
+mark surely empty squares in rows 5 6 14 
+mark surely full squares and empties in rows 4 5 13 14 and columns 11 15 19 
+mark surely full squares and empties in rows 6 7 
